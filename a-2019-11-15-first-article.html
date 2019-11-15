@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="hrkz">
+  <meta name="description" content="Hugo Frezat's personal website. Projects, publications, blog posts">
+  <meta name="keywords" content="">
+  <meta name="robots" content="noodp">
+
+  <title>hrkz - A first article about the aims of this blog</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="img/favicon.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Jomolhari&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <span class="header-inner">
+        <a href="index.html" style="text-decoration: none;">
+          <div class="logo">
+            <span class="logo-text">hrkz</span>
+            <span class="logo-sub">trivial maths in nature</span>
+          </div>
+        </a>
+        <span class="header-right">
+          <nav class="menu">
+            <ul class="menu-inner"><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li>
+            </ul>
+          </nav>
+        </span>
+      </span>
+    </header>
+    <div class="content">
+      <main class="post">
+        <div class="post-info">
+          </p>
+        </div>
+        <article>
+          <h2 class="post-title">A first article about the aims of this blog</h2>
+          <div class="post-content">
+            <p>
+              This short article is just describing what this blog will be about and what are the plans for the future. I don't want to follow a regular posting time, since my schedule can vary a lot. It is possible
+              that some months will see no post while other will have plenty. Also, I encourage you to contact me by <b>email</b> if you have any remarks / questions / ideas.
+              <h3><a href="https://github.com/hrkz/imagine">1. Imagine</a></h3>
+              I am working on a numerical framework in <a href="https://www.rust-lang.org/">Rust</a> which goal is to solve different types of problems encountered in applied mathematics. This blog will mostly be following the
+              different milestones of this development and talk about the problems that I have been facing and how I solved them (if I did).
+              <br/>
+              The project is available on Github under MIT licence and will be the subject of a next article. At the moment, it only contains basic structures such as:
+              <ul>
+                <li>A thread-safe logger with multiple sinks support, i.e you can write to different places at the same time</li>
+                <li>A work-stealing task scheduler that allows an efficient parallelization of your computations</li>
+                <li>A WIP node system to allow computations in a distributed manner on multiple machines...</li>
+              </ul>
+              <h3>2. Physics topics from a mathematical point of view</h3>
+              I will sometimes try to explain how an observed or measured physical phenomena can be turned into an equation and how a numerical model would be able to reproduce it. 
+              <h3>3. Tips and tricks</h3>
+              I like to share some tips and tricks that I found during my work, whether it is about scientific writing, coding or anything else.
+            </p>
+          </div>
+        </article>
+        <div class="pagination">
+          <div class="pagination-title">
+            <span class="pagination-title-h">Tags</span>
+            <hr />
+          </div>
+        </div>
+        <div class="post-info">
+          <p>
+            <i class="fas fa-tag" aria-hidden="true"></i>
+            <span class="tag">
+              <a href="https://github.com/hrkz/imagine">imagine</a>
+            </span>
+            <span class="tag">physical modeling</span>
+            <span class="tag">tips and tricks</span>
+          </p>
+        </div>
+      </main>
+    </div>
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <span>&copy; 2019</span>
+        </div>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-content">
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"
+        onload="hljs.initHighlightingOnLoad();"></script>
+
+</html>
