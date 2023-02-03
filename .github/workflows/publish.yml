@@ -1,0 +1,39 @@
+on: [push, pull_request]
+
+name: publish
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Building
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run build
+
+      - name: Uploading
+        uses: actions/upload-artifact@v2
+        with:
+          name: github-pages
+          path: ./dist
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying
+        id: deployment
+        uses: actions/deploy-pages@v1
