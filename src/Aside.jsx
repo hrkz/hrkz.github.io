@@ -1,11 +1,10 @@
 export function Avatar() {
   return (
-    <div className="flex flex-col mx-auto h-full w-72 items-center"
-    >
+    <div className="flex flex-col mx-auto h-full w-72 items-center">
       <img className="
         w-32 h-32 
         mb-3 
-        rounded-full shadow-lg" 
+        rounded-full shadow-lg " 
         src="assets/avatar.jpg" 
         alt="avatar" 
       />
@@ -17,12 +16,11 @@ export function Avatar() {
 
 export function Photo() {
   return (
-    <div className="flex flex-col mx-auto h-full w-72 items-center"
-    >
+    <div className="flex flex-col mx-auto h-full w-72 items-center">
       <img className="
         w-auto h-32
         mb-3 
-        rounded-full shadow-lg" 
+        rounded-full shadow-lg " 
         src="assets/photo.png" 
         alt="photo" 
       />

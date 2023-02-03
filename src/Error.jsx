@@ -6,7 +6,7 @@ export default function Error() {
       mx-auto max-w-screen-sm h-full min-h-screen
       py-8 px-4 lg:py-16 lg:px-6
       text-center
-      text-gray-900 dark:text-white"
+      text-gray-900 dark:text-white "
     >
       <h1 className="mb-4 tracking-tight text-7xl font-extrabold">404</h1>
       <p className="mb-4 tracking-tight text-3xl lg:text-4xl font-bold">Page not found.</p>

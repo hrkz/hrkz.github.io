@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useLocation } from "react-router-dom"
 
-import { GithubIcon, TwitterIcon } from "./Home"
+import { Social } from "./Home"
 import { SunIcon, MoonIcon } from "@heroicons/react/20/solid"
 
 export default function Header() {
@@ -43,75 +43,41 @@ export default function Header() {
           </button>
         </div>
         <nav 
-          className={`
-            flex-grow md:flex items-center 
-            ${ navOpen 
+          className={`flex-grow md:flex items-center 
+            ${navOpen 
               ? "flex" 
               : "hidden"
-            }
-          `}
+            }`
+          }
         >
           <ul className="flex flex-col md:flex-row md:ml-auto list-none">
-            <li 
-              className={`
-                nav-item
-                ${ location.pathname === '/about' 
-                ? "font-bold text-gray-900 dark:text-white border-b-2 border-gray-900 dark:border-white" 
-                : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                }
-            `}>
-              <Link 
-                to="about" 
-                className="flex items-center px-3 py-2 text-sm"
-              >
-                About
-              </Link>
-            </li>
-            <li 
-              className={`
-                nav-item
-                ${ location.pathname === '/research' 
-                ? "font-bold text-gray-900 dark:text-white border-b-2 border-gray-900 dark:border-white" 
-                : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                }
-            `}>
-              <Link 
-                to="research" 
-                className="flex items-center px-3 py-2 text-sm"
-              >
-                Research
-              </Link>
-            </li>
-            <li 
-              className={`
-                nav-item
-                ${ location.pathname === '/projects' 
+            {[
+              ['About', '/about'],
+              ['Research', '/research'],
+              ['Projects', '/projects']
+            ].map(([title, url]) => (
+              <li 
+                key={title}
+                className={`nav-item
+                  ${location.pathname === url 
                   ? "font-bold text-gray-900 dark:text-white border-b-2 border-gray-900 dark:border-white" 
                   : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  }`
                 }
-            `}>
-              <Link 
-                to="projects" 
-                className="flex items-center px-3 py-2 text-sm"
               >
-                Projects
-              </Link>
+                <Link 
+                  to={url} 
+                  className="flex px-3 py-2 text-sm"
+                >
+                  {title}
+                </Link>
+              </li>
+            ))}
+            <li className="nav-item px-3 py-2">
+              <Social name="GitHub" url="https://github.com/hrkz/" />
             </li>
-            <li className="nav-item">
-              <a 
-                href="https://github.com/hrkz/"
-                className="flex items-center px-3 py-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-              >
-                <GithubIcon />
-              </a>
-            </li>
-            <li className="nav-item">
-              <a 
-                href="#"
-                className="flex items-center px-3 py-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-              >
-                <TwitterIcon />
-              </a>
+            <li className="nav-item px-3 py-2">
+              <Social name="Twitter" url="#" />
             </li>
             <li className="nav-item">
               <button
@@ -120,7 +86,7 @@ export default function Header() {
                 type="button"
                 onClick={toggleTheme}
               >
-                { theme === 'light' ? <MoonIcon className="w-5 h-5" /> : <SunIcon className="w-5 h-5" /> }
+                {theme === 'light' ? <MoonIcon className="w-5 h-5" /> : <SunIcon className="w-5 h-5" />}
               </button>
             </li>
           </ul>
