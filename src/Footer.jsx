@@ -127,7 +127,7 @@ export default function Footer() {
       <hr className="py-2 my-4 border-gray-400 dark:border-gray-300" />
       <div className="md:flex md:justify-between">
         <span className="md:text-center text-sm">
-          © 2023 Hugo Frezat. All Rights Reserved.
+          © 2024 Hugo Frezat. All Rights Reserved.
         </span>
         <div className="flex mt-4 space-x-6 md:justify-center md:mt-0">
           <a 
