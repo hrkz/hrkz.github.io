@@ -18,7 +18,7 @@ const newsContent = [
     title: 'Obtained Ph.D. from University Grenoble-Alpes',
     date: 'December 9th, 2022',
     res: [
-      ['docs', 'Thesis', '#']
+      ['docs', 'Thesis', 'https://theses.hal.science/tel-04028879v1/file/FREZAT_2022_diffusion.pdf']
     ]
   },
   {
@@ -85,7 +85,7 @@ export default function News() {
       </div>
       ))}
       <ul className="pagination">
-        <li><Link to="/ca">Prev</Link></li>
+        <li><Link to="/">Prev</Link></li>
         <li><Link to="/">1</Link></li>
         <li><Link to="/">Next</Link></li>
       </ul>

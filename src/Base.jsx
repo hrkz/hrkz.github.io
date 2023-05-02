@@ -45,9 +45,9 @@ export default function Base() {
             type="button"
             onClick={() => setNavOpen(!navOpen)}
           >
-            <span className="line"></span>
-            <span className="line"></span>
-            <span className="line"></span>
+            <div className="line"></div>
+            <div className="line"></div>
+            <div className="line"></div>
           </button>
         </div>
         <nav className={`${navOpen ? "" : "nav-closed"}`}>

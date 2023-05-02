@@ -61,11 +61,8 @@ Themes
   %emph-border { border-color: $light-primary-color; }
 
   %bg { background-color: rgb(243 244 246); }
+  %emph-bg { background-color: rgb(107 114 128); }
   %info-bg { background-color: rgb(229 231 235); }
-
-  span {
-    background-color: rgb(107 114 128);
-  }
 
   a, 
   button,
@@ -91,13 +88,8 @@ Themes
   %emph-border { border-color: $night-primary-color; }
 
   %bg { background-color: rgb(55 65 81); }
+  %emph-bg { background-color: rgb(156 163 175); }
   %info-bg { background-color: rgb(75 85 99); }
-
-  span,
-  textarea,
-  input {
-    background-color: rgb(156 163 175);
-  }
 
   a, 
   button,
@@ -164,11 +156,13 @@ header {
 
     .line {
       position: relative;
-      display: block;
-        
+      display: block;    
+
       width: 1.5rem;
       height: 1px;
       margin-top: 0.25rem;
+
+      @extend %emph-bg;
     }
   }
 
@@ -177,8 +171,8 @@ header {
     flex-grow: 1;
 
     ul {
-      @media (max-width: 640px) { margin: 0rem; flex-direction: column; list-style-type: none; }
       display: flex;
+      @media (max-width: 640px) { margin: 0rem; flex-direction: column; list-style-type: none; }
       margin: 0rem 0rem 0rem auto;
 
       font-size: 0.875rem; 
@@ -192,7 +186,10 @@ header {
         border-bottom-width: 2px;
         border-bottom-style: solid;
         @extend %emph-border;
-        a { @extend %emph-object; }
+
+        a { 
+          @extend %emph-object; 
+        }
       }
     }
   }
@@ -257,13 +254,15 @@ article {
     align-items: center;
   
     @extend %link-object;
-    &:hover { 
-      text-decoration-line: underline; 
-    }
+    &:hover { text-decoration-line: underline; }
 
     .icon {
       margin-left: 0.25rem;
     }    
+  }
+
+  h2 {
+    margin: 2rem 0rem 2rem 0rem;
   }
 }
 
