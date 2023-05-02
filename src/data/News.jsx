@@ -85,7 +85,7 @@ export default function News() {
       </div>
       ))}
       <ul className="pagination">
-        <li><Link to="/">Prev</Link></li>
+        <li><Link to="/ca">Prev</Link></li>
         <li><Link to="/">1</Link></li>
         <li><Link to="/">Next</Link></li>
       </ul>

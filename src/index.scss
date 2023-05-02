@@ -60,6 +60,9 @@ Themes
   %border { border-color: rgb(156 163 175); }
   %emph-border { border-color: $light-primary-color; }
 
+  %bg { background-color: rgb(243 244 246); }
+  %info-bg { background-color: rgb(229 231 235); }
+
   span {
     background-color: rgb(107 114 128);
   }
@@ -70,7 +73,9 @@ Themes
   select,
   input {
     color: rgb(107 114 128);
-    &:hover { color: $light-primary-color; }
+    &:hover { 
+      color: $light-primary-color; 
+    }
   }
 }
 
@@ -85,7 +90,12 @@ Themes
   %border { border-color: rgb(209 213 219); }
   %emph-border { border-color: $night-primary-color; }
 
-  span {
+  %bg { background-color: rgb(55 65 81); }
+  %info-bg { background-color: rgb(75 85 99); }
+
+  span,
+  textarea,
+  input {
     background-color: rgb(156 163 175);
   }
 
@@ -95,7 +105,9 @@ Themes
   select,
   input {
     color: rgb(156 163 175);
-    &:hover { color: $night-primary-color; }
+    &:hover { 
+      color: $night-primary-color; 
+    }
   }
 }
 
@@ -104,11 +116,7 @@ Content
 */
 main {
   max-width: 1024px;
-  min-height: 100vh;
-  height: 100%;
-
-  margin-left: auto; 
-  margin-right: auto;
+  margin: auto; 
   padding: 2rem 1.5rem 2rem 1.5rem;
 }
 
@@ -249,7 +257,9 @@ article {
     align-items: center;
   
     @extend %link-object;
-    &:hover { text-decoration-line: underline; }
+    &:hover { 
+      text-decoration-line: underline; 
+    }
 
     .icon {
       margin-left: 0.25rem;
@@ -265,6 +275,18 @@ p {
   text-align: justify;
 }
 
+h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+}
+
 h3 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -275,6 +297,11 @@ h4 {
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.25rem;
+}
+
+.hero {
+  transform: translateY(75%);
+  text-align: center;
 }
 
 .title {
@@ -290,6 +317,26 @@ h4 {
   display: block;
   width: 1.25rem;
   height: 1.25rem;
+}
+
+.caption {
+  padding: 1rem 0rem 1rem 0rem;
+}
+
+.button {
+  display: inline-flex;
+  padding: 0.625rem 1.25rem 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  @extend %bg;
+
+  @extend %emph-object;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+
+  &:hover {
+    @extend %info-bg;
+  }
 }
 
 .pagination {
