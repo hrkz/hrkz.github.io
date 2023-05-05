@@ -50,19 +50,27 @@ a {
 Themes
 */
 .light {
-  color: $light-primary-color;
-  background-color: rgb(255 255 255);
+  @extend %base-object;
+  @extend %base-bg;
 
-  %emph-object { color: $light-primary-color; font-weight: 700; }
+  %base-object { color: $light-primary-color; }
   %info-object { color: rgb(107 114 128); }
+  %emph-object { color: $light-primary-color; font-weight: 700; }
   %link-object { color: rgb(37 99 235); }
   
-  %border { border-color: rgb(156 163 175); }
+  %base-border { border-color: rgb(156 163 175); }
+  %info-border { border-color: rgb(229 231 235); }
   %emph-border { border-color: $light-primary-color; }
 
-  %bg { background-color: rgb(243 244 246); }
-  %emph-bg { background-color: rgb(107 114 128); }
+  %base-bg { background-color: rgb(255 255 255); }
+  %elem-bg { background-color: rgb(243 244 246); }
   %info-bg { background-color: rgb(229 231 235); }
+  %emph-bg { background-color: rgb(107 114 128); }
+
+  %base-fill { fill: rgb(255 255 255); }
+
+  %base-stroke { stroke: rgb(255 255 255); }
+  %info-stroke { stroke: rgb(229 231 235); }
 
   a, 
   button,
@@ -77,19 +85,27 @@ Themes
 }
 
 .night {
-  color: $night-primary-color;
-  background-color: rgb(31 41 55);
+  @extend %base-object;
+  @extend %base-bg;
 
-  %emph-object { color: $night-primary-color; font-weight: 700; }
+  %base-object { color: $night-primary-color }
   %info-object { color: rgb(156 163 175); }
+  %emph-object { color: $night-primary-color; font-weight: 700; }
   %link-object { color: rgb(59 130 246); }
 
-  %border { border-color: rgb(209 213 219); }
+  %base-border { border-color: rgb(209 213 219); }
+  %info-border { border-color: rgb(75 85 99); }
   %emph-border { border-color: $night-primary-color; }
 
-  %bg { background-color: rgb(55 65 81); }
-  %emph-bg { background-color: rgb(156 163 175); }
+  %base-bg { background-color: rgb(31 41 55); }
+  %elem-bg { background-color: rgb(55 65 81); }
   %info-bg { background-color: rgb(75 85 99); }
+  %emph-bg { background-color: rgb(156 163 175); }
+
+  %base-fill { fill: rgb(31 41 55); }
+
+  %base-stroke { stroke: rgb(31 41 55); }
+  %info-stroke { stroke: rgb(75 85 99); }
 
   a, 
   button,
@@ -127,7 +143,7 @@ header {
 
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  @extend %border;
+  @extend %base-border;
 
   .socials {
     display: flex;
@@ -329,14 +345,29 @@ h4 {
 }
 
 .popover {
-  display: block;
+  padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  border: 1px solid;
+  border-radius: 0.5rem;
+  @extend %info-border;
+  @extend %base-bg;
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  @extend %base-fill;
+
+  &>path { 
+    @extend %info-stroke; 
+  }  
 }
 
 .button {
   display: inline-flex;
   padding: 0.625rem 1.25rem 0.625rem 1.25rem;
   border-radius: 0.5rem;
-  @extend %bg;
+  @extend %elem-bg;
 
   @extend %emph-object;
   font-size: 0.875rem;

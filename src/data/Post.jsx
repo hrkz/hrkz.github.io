@@ -3,104 +3,109 @@ import React from 'react'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
 
-function Schema(props) {
-  const title = props.title;
-  const date = props.date;
-
-  return (
-    <div>
-      <h3>{title}</h3>
-      <h4 className="info"><i>{date}</i></h4>
-      <hr />
-      {props.children}
-    </div>
-  )
-}
-
-function Section(props) {
-  const name = props.name;
-
-  return (
-    <>
-      <h2>{name}</h2>
-      {props.children}
-    </>
-  )
-}
-
-function Math({children, display = false}) {
-  const ref = React.useRef();
-
-  React.useEffect(() => {
-    if (ref.current) {
-      katex.render(
-        children, 
-        ref.current, { 
-          throwOnError: false, 
-          displayMode: display 
-        });
-    }
-  }, [ref.current]);
-
-  return (
-    <span ref={ref}></span>
-  )
-}
-
 import { 
   FloatingPortal,
+  FloatingArrow,
   useFloating,
   useClick,
   useDismiss,
   useRole,
   useInteractions, 
-  offset 
-} from '@floating-ui/react';
-
-function Popover(props) {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  const {refs, floatingStyles, context} = useFloating({
-    open: isOpen,
-    onOpenChange: setIsOpen,
-    middleware: [offset(10)],
-  });
-
-  const click = useClick(context);
-  const dismiss = useDismiss(context);
-  const role = useRole(context);
-
-  const {getReferenceProps, getFloatingProps} = useInteractions([
-    click,
-    dismiss,
-    role,
-  ]);
-
-  return (
-    <>
-      <a ref={refs.setReference} {...getReferenceProps()}>
-        {props.children}
-      </a>
-      {isOpen && (
-        <FloatingPortal context={context} modal={false}>
-          <div
-            ref={refs.setFloating}
-            style={floatingStyles}
-            {...getFloatingProps()}
-          >
-            Popover example
-          </div>
-        </FloatingPortal>
-      )}
-    </>
-  )
-}
+  offset,
+  arrow
+} from '@floating-ui/react'
 
 export default function Post() {
+  function Math({ display = false, children }) {
+    const ref = React.useRef();
+
+    React.useEffect(() => {
+      if (ref.current) {
+        katex.render(
+          children, 
+          ref.current, { 
+            throwOnError: false, 
+            displayMode: display 
+          });
+      }
+    }, [ref.current]);
+  
+    return (
+      <span ref={ref}></span>
+    )
+  }
+
+  function Ref({ element, children }) {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const arrowRef = React.useRef();
+
+    const {refs, floatingStyles, context} = useFloating({
+      placement: 'top',
+      open: isOpen,
+      onOpenChange: setIsOpen,
+      middleware: [offset(10), arrow({ element: arrowRef })],
+    });
+  
+    const click = useClick(context);
+    const dismiss = useDismiss(context);
+    const role = useRole(context);
+  
+    const {getReferenceProps, getFloatingProps} = useInteractions([
+      click,
+      dismiss,
+      role,
+    ]);
+  
+    return (
+      <>
+        <span ref={refs.setReference} {...getReferenceProps()}>{element}</span>
+        {isOpen && (
+          <FloatingPortal context={context} modal={false}>
+            <div
+              ref={refs.setFloating}
+              style={floatingStyles}
+              className='popover'
+              {...getFloatingProps()}
+            >
+              {children}
+              <FloatingArrow ref={arrowRef} context={context} d='M 14,14 7,7 0,14' className='arrow' />
+            </div>
+          </FloatingPortal>
+        )}
+      </>
+    )
+  }
+
+  function PostSection({ id, name, children }) {
+    return (
+      <>
+        <h2 id={id}>{name}</h2>
+        {children}
+      </>
+    )
+  }
+
+  function PostEntry({ title, date, children }) {
+    return (
+      <>
+        <h3>{title}</h3>
+        <h4 className="info"><i>{date}</i></h4>
+        <hr />
+        {children}
+      </>
+    )
+  }
+
   return (
     <article>
-      <Schema title={<>Example article from the <a href="https://book.sciml.ai/notes">SciML notes</a></>} date="May 4th, 2023">
-        <Section name="Adjoint of Linear Solve">
+      <PostEntry 
+        title={<>Example article from the <a href="https://book.sciml.ai/notes">SciML notes</a></>} 
+        date='May 4th, 2023'
+      >
+        <PostSection 
+          id='adjoint_linear' 
+          name='Adjoint of Linear Solve'
+        >
         <p>
           Let's say we have the function <Math>{`A(p)x = b(p)`}</Math>, i.e. this is the function that is given by the linear solving process, and we want to
           calculate the gradients of a cost function <Math>{`g(x, p)`}</Math>. To evaluate the gradient directly, we'd calculate:
@@ -115,10 +120,13 @@ export default function Post() {
           then we obtain
           <Math display={true}>{`\\frac{dg}{dp}|_{f=0} = g_{p} - \\lambda^{T}f_{p} = g_{p} - \\lambda^{T}(A_{p}x - b_{p})`}</Math>
           which is an alternative formulation of the derivative at the solution value. 
-          However, in this case there is no computational benefit to this <Popover content={'bonjour'}>reformulation</Popover>.
+          However, in this case there is no computational benefit to this <Ref element={<button>reformulation</button>}><img className="avatar icon" src="assets/avatar.jpg" alt="" />@reference</Ref>.
         </p>
-        </Section>
-        <Section name="Adjoint of Nonlinear Solve">
+        </PostSection>
+        <PostSection 
+          id='adjoint_nonlinear'
+          name='Adjoint of Nonlinear Solve'
+        >
         <p>
           Now let's look at some <Math>{`f(x, p) = 0`}</Math> nonlinear solving. Differentiating by <Math>{`p`}</Math> gives us:
           <Math display={true}>{`f_{x}x_{p} + f_{p} = 0`}</Math>
@@ -136,8 +144,11 @@ export default function Post() {
           <Math display={true}>{`\\frac{dg}{dp}|_{f=0} = g_{p} - \\lambda^{T}f_{p}`}</Math>
           which does the calculation without ever building the size <Math>{`M \\times MP`}</Math> term.
         </p>
-        </Section>
-        <Section name="Adjoint of Ordinary Differential Equations">
+        </PostSection>
+        <PostSection 
+          id='adjoint_ode'
+          name='Adjoint of Ordinary Differential Equations'
+        >
         <p>
           We with to solve for some cost function <Math>{`G(u, p)`}</Math> evaluated throughout the differential equation, i.e:
           <Math display={true}>{`G(u, p) = G(u(p)) = \\int_{t_{0}}^{T} g(u(t, p)) dt`}</Math>
@@ -158,9 +169,14 @@ export default function Post() {
           can be calculated simultaneously by appending a single value to the reverse ODE, since we can simply define the new ODE term as <Math>{`g_{p} + \\lambda^{*}f_{p}`}</Math>,
           which would then calculate the integral on the fly (ODE integration is just... integration!).
         </p>
-        </Section>
-        <Section name="Complexities of Implementing ODE Adjoints"><p>...</p></Section>
-      </Schema>
+        </PostSection>
+        <PostSection 
+          id='complexities'
+          name='Complexities of Implementing ODE Adjoints'
+        >
+          <p>...</p>
+        </PostSection>
+      </PostEntry>
     </article>
   )
 }
