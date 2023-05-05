@@ -70,7 +70,7 @@ export default function News() {
       <hr />
       {newsContent.map((news) => (
       <div key={news.id} className="news-entry">
-        <h4 className="info">{news.date}</h4>
+        <h4 className="info"><i>{news.date}</i></h4>
         <div className="news-content">
           <h4 className="title">
             {news.title}
