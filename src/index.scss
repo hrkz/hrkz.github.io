@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-$light-primary-color: rgb(17 24 39);
+$light-primary-color: rgb(0 0 0);
 $night-primary-color: rgb(255 255 255);
 
 :root {
@@ -50,8 +50,8 @@ a {
 Themes
 */
 .light {
-  @extend %base-object;
-  @extend %base-bg;
+  color: $light-primary-color;
+  background-color: rgb(249 250 251);
 
   %base-object { color: $light-primary-color; }
   %info-object { color: rgb(107 114 128); }
@@ -85,10 +85,10 @@ Themes
 }
 
 .night {
-  @extend %base-object;
-  @extend %base-bg;
+  color: $night-primary-color;
+  background-color: rgb(31 41 55);
 
-  %base-object { color: $night-primary-color }
+  %base-object { color: $night-primary-color; }
   %info-object { color: rgb(156 163 175); }
   %emph-object { color: $night-primary-color; font-weight: 700; }
   %link-object { color: rgb(59 130 246); }
