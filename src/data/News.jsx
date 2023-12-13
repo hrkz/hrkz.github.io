@@ -30,6 +30,13 @@ export default function News() {
       <h4>News</h4>
       <hr />
       <NewsEntry 
+        title={<>New paper submitted to <i>Journal of Advances in Modeling Earth Systems</i></>} 
+        date='November 29th, 2023'
+      >
+        <NewsResource icon={<DocsIcon />} desc='Preprint' url=' https://arxiv.org/pdf/2310.19385' />
+        <NewsResource icon={<CodeIcon />} desc='Code' url='#' />
+      </NewsEntry>
+      <NewsEntry 
         title={<>Started postdoc at Institut de Physique du Globe de Paris (IPGP)</>} 
         date='March 1st, 2023' 
       />
