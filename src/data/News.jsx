@@ -16,7 +16,7 @@ export default function News() {
   function NewsEntry({ title, date, children }) {
     return (
       <div className="news-entry">
-        <h4 className="info"><i>{date}</i></h4>
+        <h4 className="news-head date">{date}</h4>
         <div className="news-content">
           <h4 className="title">{title}</h4>
           {children}
@@ -31,38 +31,38 @@ export default function News() {
       <hr />
       <NewsEntry 
         title={<>New paper submitted to <i>Journal of Advances in Modeling Earth Systems</i></>} 
-        date='November 29th, 2023'
+        date='Nov 29, 2023'
       >
         <NewsResource icon={<DocsIcon />} desc='Preprint' url=' https://arxiv.org/pdf/2310.19385' />
         <NewsResource icon={<CodeIcon />} desc='Code' url='#' />
       </NewsEntry>
       <NewsEntry 
-        title={<>Started postdoc at Institut de Physique du Globe de Paris (IPGP)</>} 
-        date='March 1st, 2023' 
+        title={<>Started postdoc at Institut de Physique du Globe de Paris</>} 
+        date='Mar 1, 2023' 
       />
       <NewsEntry 
         title={<>Obtained Ph.D. from University Grenoble-Alpes</>} 
-        date='December 9th, 2022'
+        date='Dec 9, 2022'
       >
         <NewsResource icon={<DocsIcon />} desc='Thesis' url='https://theses.hal.science/tel-04028879v1/file/FREZAT_2022_diffusion.pdf'/>
       </NewsEntry>
       <NewsEntry 
         title={<>New paper accepted in <i>Journal of Advances in Modeling Earth Systems</i></>} 
-        date='September  27th, 2022'
+        date='Sep 27, 2022'
       >
         <NewsResource icon={<DocsIcon />} desc='Preprint' url='https://arxiv.org/pdf/2204.03911' />
         <NewsResource icon={<CodeIcon />} desc='Code' url='#' />
       </NewsEntry>
       <NewsEntry 
         title={<>New paper accepted in <i>Physical Review Fluids</i></>} 
-        date='February 1st, 2021'
+        date='Feb 1, 2021'
       >
         <NewsResource icon={<DocsIcon />} desc='Preprint' url='https://arxiv.org/pdf/2010.04663' />
         <NewsResource icon={<CodeIcon />} desc='Code' url='#' />
       </NewsEntry>
       <NewsEntry 
         title={<>Started Ph.D. program at University Grenoble-Alpes</>} 
-        date='October 1st, 2019'
+        date='Oct 1, 2019'
       >
         <NewsResource icon={<DocsIcon />} desc='Proposal' url='#' />
       </NewsEntry>

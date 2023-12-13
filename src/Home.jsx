@@ -8,8 +8,7 @@ export default function Home() {
         <div className="profile">
           <img className="avatar icon" src="assets/avatar.jpg" alt="" />
           <h3>Hugo Frezat</h3>
-          <p><i>Maths and physics on computers</i></p>
-          <h4 className="info">Postdoc at IPGP</h4>
+          <p class="info">Maths and physics on computers</p>
         </div>
         <div className="description">
           <p>

@@ -89,7 +89,7 @@ export default function Post() {
     return (
       <>
         <h3>{title}</h3>
-        <h4 className="info"><i>{date}</i></h4>
+        <h4 className="date">{date}</h4>
         <hr />
         {children}
       </>
@@ -100,14 +100,14 @@ export default function Post() {
     <article>
       <PostEntry 
         title={<>The purpose of symbolic maths</>} 
-        date='December 25th, 2023'
+        date='Dec 25, 2023'
       >
         <PostSection 
           id='intro' 
           name='Introduction'
         >
         <p>
-          I want to discuss the ability to generate language-independent <Math>{`\\mathcal{G}`}</Math> code generation, in particular for scientific 
+          I want to discuss the ability to generate language-independent code <Math>{`f(\\mathcal{G})`}</Math>, in particular for scientific 
           applications. <Ref element={<button>[Sources]</button>}>@reference</Ref>.
         </p>
         </PostSection>

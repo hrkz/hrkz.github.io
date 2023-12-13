@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 $light-primary-color: rgb(0 0 0);
 $night-primary-color: rgb(255 255 255);
@@ -261,7 +262,14 @@ article {
   .news-entry {
     display: grid;
     margin-top: 0.75rem;
-    @media (min-width: 640px) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    @media (min-width: 640px) { 
+      grid-template-columns: repeat(3, minmax(0, 1fr)); 
+      .news-head {
+        text-align: right;
+        margin-right: 2rem;
+      }
+    }
 
     .news-content {
       @media (min-width: 640px) { grid-column: span 2 / span 2; }
@@ -331,7 +339,14 @@ h4 {
 
 .info {
   @extend %info-object;
-  font-weight: 400;
+  font-weight: 500;
+}
+
+.date {
+  @extend %info-object;
+  font-family: 'Merriweather', 'serif';
+  font-style: italic;
+  font-weight: 300;
 }
 
 .icon {
