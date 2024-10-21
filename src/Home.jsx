@@ -21,7 +21,7 @@ export default function Home() {
             processes using solver temporal information.
           </p>
           <p>
-            I am also side-developing a scientific framework to study spectral methods, symbolic transformations and their relation through automatic
+            I am also developing a scientific framework to study spectral methods, symbolic transformations and their relation through automatic
             differentiation.
           </p>
         </div>
