@@ -12,20 +12,17 @@ export default function Home() {
         </div>
         <div className="description">
           <p>
-            My education has been chaotic in the variety of subjects I explored, starting with computer science and programming 
-            either for web, mobile or desktop software.
+            I am a researcher studying the interplay between statistical machine learning and numerical simulation of dynamical systems, 
+            mostly arising from differential equations. Among these systems, I am mostly interested in climate modeling and astrophysical fluid
+            dynamics, but always opened to suggestions.
           </p>
           <p>
-            I later discovered numerical algorithms and how simulations can help us reproduce 
-            natural effects and decided to study applied maths.
+            My recent work involves the definition of stable learning strategies that accelerate numerical simulations by predicting unresolved 
+            processes using solver temporal information.
           </p>
           <p>
-            Learning about numerical modeling quickly led me to the world of physics that I 
-            continually explore depending on the application.
-          </p>
-          <p>
-            Now, I like working with computers, applied maths and physics and try to 
-            design new numerical methods to better understand physical processes.
+            I am also side-developing a scientific framework to study spectral methods, symbolic transformations and their relation through automatic
+            differentiation.
           </p>
         </div>
       </div>
