@@ -1,0 +1,84 @@
+<button
+  class="theme-switcher"
+  title="Toggles light & dark"
+  aria-label="auto"
+  aria-live="polite"
+>
+<svg 
+  xmlns="http://www.w3.org/2000/svg"
+  class="light-svg icon"
+  viewBox="0 0 24 24" 
+  fill="none" 
+  stroke="currentColor" 
+  stroke-linecap="round" 
+  stroke-linejoin="round"
+  stroke-width="2"
+>
+  <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+  <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+</svg>
+  <svg 
+    xmlns="http://www.w3.org/2000/svg"
+    class="dark-svg icon"
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+    stroke-width="2"
+  >
+    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+  </svg>
+</button>
+
+<style>
+  /* theme switcher */
+  .theme-switcher {
+    padding-left: calc(var(--spacing) * 2);
+  }
+</style>
+
+<script>
+  type Theme = 'auto' | 'dark' | 'light';
+
+  /** Key in `localStorage` to store color theme preference at. */
+  const storageKey = 'theme';
+
+  /** Get a typesafe theme string from any JS value (unknown values are coerced to `'auto'`). */
+  const parseTheme = (theme: unknown): Theme =>
+    theme === 'auto' || theme === 'dark' || theme === 'light' ? theme : 'auto';
+
+  /** Load the user’s preference from `localStorage`. */
+  const loadTheme = (): Theme =>
+    parseTheme(typeof localStorage !== 'undefined' && localStorage.getItem(storageKey));
+
+  /** Store the user’s preference in `localStorage`. */
+  function storeTheme(theme: Theme): void {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(storageKey, theme === 'light' || theme === 'dark' ? theme : '');
+    }
+  }
+
+  /** Get the preferred system color scheme. */
+  const getPreferredColorScheme = (): Theme =>
+    matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+
+  /** Update UI, document theme, and local storage state. */
+  function onThemeChange(theme: Theme): void {
+    document.documentElement.dataset.theme = theme === 'auto' ? getPreferredColorScheme() : theme;
+    storeTheme(theme);
+  }
+
+  // React to changes in system color scheme.
+  matchMedia(`(prefers-color-scheme: light)`).addEventListener('change', () => {
+    if (loadTheme() === 'auto') onThemeChange('auto');
+  });
+
+  let theme = loadTheme();
+  onThemeChange(theme);
+  // Switch theme (auto not supported yet).
+  document.querySelector('.theme-switcher')?.addEventListener('click', () => {
+    theme = theme === "light" ? "dark" : "light"; 
+    onThemeChange(theme);
+  });
+</script>

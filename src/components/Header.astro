@@ -1,0 +1,137 @@
+---
+import Theme from '../components/Theme.astro';
+import Search from '../components/Search.astro';
+
+const { page } = Astro.props;
+---
+
+<header>
+  <a href="/" class="logo"><h3>hrkz</h3></a>
+  <nav aria-label="Menu">
+    <button
+      class="menu-toggler show-resp"
+      aria-label="Open/close navigation menu"
+      aria-expanded="false"
+      aria-controls="menu-items"
+    >
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        class="menu-icons"
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        stroke-width="2"
+      >
+        <path d="M4 6l16 0" class="icon-show"></path>
+        <path d="M10 12l10 0" class="icon-show"></path>
+        <path d="M6 18l14 0" class="icon-show"></path>
+        <path d="M18 6l-12 12" class="icon-hide"></path>
+        <path d="M6 6l12 12" class="icon-hide"></path>
+      </svg>
+    </button>
+    <ul class="menu-items hide">
+      <li><a href="/notes/" class=`${page === 'Notes' ? 'path cur-page' : ''}`>Notes</a></li>
+      <li><a href="/about/" class=`${page === 'About' ? 'path cur-page' : ''}`>About</a></li>
+      <li><a href="/project/" class=`${page === 'Project' ? 'path cur-page' : ''}`>Project(s)</a></li>
+      <li><Theme /></li>
+      <!--<li><Search /></li>-->
+    </ul>
+  </nav>
+</header>
+<hr />
+
+<style>
+  /* header */
+  header {
+    display: flex;
+    padding-block: calc(var(--spacing) * 4);
+    @media screen and (min-width: 768px) {
+      align-items: center;
+    }
+  }
+
+  /* elements */
+  .logo {
+    position: absolute;
+    text-transform: uppercase;
+  }
+
+  /* navigation */
+  nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    /* menu list */
+    ul {
+      grid-template-columns: 3;
+      column-gap: 1.25rem;
+      
+      li {
+        display: flex;
+        padding-block: calc(var(--spacing) * 2);
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  /* current tab */
+  .cur-page {
+    text-decoration-style: solid;
+  }
+
+  /* menu (responsive screens) */
+  .menu-toggler {
+    align-self: flex-end;
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .menu-icons {
+    .icon-show { opacity: 1; }
+    .icon-hide { opacity: 0; }
+  }
+  .menu-icons.expanded {
+    .icon-show { opacity: 0; }
+    .icon-hide { opacity: 1; }
+  } 
+  .menu-items {
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  // Query the menu classes (toggler, items and icons).
+  const toggle = document.querySelector('.menu-toggler')!;
+  const items = document.querySelector('.menu-items')!;
+  const icons = document.querySelector('.menu-icons')!;
+
+  /** Update UI visibility. */
+  function setExpanded(expanded: boolean): void {
+    toggle.setAttribute('aria-expanded', String(expanded));
+    items.classList.toggle('hide');
+    icons.classList.toggle('expanded');
+  }
+
+  toggle.addEventListener('click', () => {
+    setExpanded(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  // Close menu on escape calls.
+  const nav = toggle.closest('nav');
+  if (nav) {
+    nav.addEventListener('keyup', (e) => {
+      if (e.code === 'Escape') {
+        setExpanded(false);
+      }
+    });
+  }
+</script>

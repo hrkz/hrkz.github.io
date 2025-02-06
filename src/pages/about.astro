@@ -1,0 +1,37 @@
+---
+import Page from '../components/Page.astro';
+---
+
+<Page
+	page="About",
+	site="Maths and physics on computers"
+>
+  <section>
+    <img class="photo" src="https://placehold.co/400x300/png" alt="" />
+    <p>
+      The main goal here is to collect, synthesize, and preserve various useful or intriguing discoveries I encounter in my daily life. 
+      While my main focus lies in the numerical simulation of physical processes, I also explore computer algebra/proof systems.
+    </p>
+    <p>
+      A secondary objective is to foster interactive discussions on social media —most likely on Bluesky— where insights can be shared, 
+      refined, and expanded to a wider audience.
+    </p>
+    <p>
+      I am also a strong advocate of reproducible research and believe in accessible scientific data and methodologies.
+      It would probably be interesting to share step-by-step notes that allow reproducing results from my research.
+    </p>
+    <h3>Academic position</h3>
+    <p>
+      I am currently a postdoctoral researcher at <a href="https://www.ipgp.fr/">Institut de Physique du Globe de Paris (IPGP)</a>. 
+      Prior to this, I obtained a PhD from <a href="https://www.univ-grenoble-alpes.fr/">Université Grenoble-Alpes, France</a>.
+    </p>
+  </section>
+</Page>
+
+<style>
+  /* about photo */
+  .photo {
+    margin-inline: auto;
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+</style>

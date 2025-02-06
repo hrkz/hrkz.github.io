@@ -1,0 +1,132 @@
+/* markdown-type content */
+.content {
+  /* global settings */
+  :not(p, a, strong, em, del, span, input, button, code, svg, br) {
+    margin-top: 1em;
+  }
+
+  /* text */
+  p {
+    margin-top: 0.5em;
+  }
+  h1, 
+  h2, 
+  h3, 
+  h4, 
+  h5 {
+    font-weight: 600;
+  }
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    &:hover { 
+      color: var(--text-color); 
+    }
+  }
+
+  /* list */
+  ol {
+    list-style-type: decimal;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol,
+  ul {
+    padding-inline-start: 2em;
+  }
+  li {
+    margin-block: 0;
+  }
+  > ul > li p {
+    margin-block: 0.5em;
+  }
+  > ul > li > p:first-child { margin-top: 1.25em; }
+  > ul > li > p:last-child { margin-bottom: 1.25em }
+  > ol > li > p:first-child { margin-top: 1.25em }
+  > ol > li > p:last-child { margin-bottom: 1.25em }
+  ul ul, ul ol, ol ul, ol ol {
+    margin-block: 0.25em;
+  }
+
+  /* aside */
+  blockquote, 
+  details {
+    padding-inline-start: 1em;
+    border-inline-start: 3px solid var(--color-accent);
+    &:hover {
+      border-color: var(--color-text);
+    }
+  }
+  summary {
+    margin-inline-start: -0.5em;
+    padding-inline-start: 0.5em;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  /* media (image / video) */
+  img, 
+  picture, 
+  video, 
+  canvas, 
+  svg, 
+  iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  figcaption,
+  small {
+    margin-top: 0.5em;
+    font-size: 0.8rem;
+    line-height: 1.25;
+  }
+  
+  /* table */
+  table {
+    display: block;
+    overflow: auto;
+    border-spacing: 0;
+  }
+  td,
+  th {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5em 1em;
+    vertical-align: baseline;
+  }
+  th:not([align]) {
+    text-align: start;
+  }
+  th:first-child, td:first-child { padding-inline-start: 0; }
+  th:last-child, td:last-child { padding-inline-end: 0; }
+
+  /* code */
+  code {
+    font-size: var(--text-code);
+  }
+  pre {
+    display: flex;
+    border-radius: 6px;
+    > code {
+      padding: 0.75em;
+    }
+  }
+  :not(pre) > code {
+    padding: 0.125em 0.375em;
+    margin-block: -0.125em;
+    background-color: var(--color-border);
+    font-size: var(--text-code);
+    tab-size: 2;
+  }
+  :is(h1, h2, h3, h4, h5, h6) code {
+    font-size: inherit;
+  }
+}
+
+.astro-code,
+.astro-code span {
+  background-color: var(--color-border) !important;
+}
+[data-theme="dark"] :is(.astro-code, .astro-code span) {
+  color: var(--shiki-dark) !important;
+}

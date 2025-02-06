@@ -1,0 +1,64 @@
+---
+import '../style/typo.scss';
+import Page from '../components/Page.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<Page
+  page={frontmatter.title},
+  site="Maths and physics on computers"
+>
+  <section class="frontmatter">
+    <div class="go-back">
+      <a
+        class="path"
+        onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none"
+          stroke="currentColor" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2"
+        >
+          <path d="M9 14l-4 -4l4 -4"></path>
+          <path d="M5 10h11a4 4 0 1 1 0 8h-1"></path>
+        </svg>
+        Go back
+      </a>
+    </div>
+    <h2>{frontmatter.title}</h2>
+    <div class="description">
+      <svg 
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 24 24" 
+        fill="currentColor"
+      >
+        <path d="M16 2a1 1 0 0 1 .993 .883l.007 .117v1h1a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h1v-1a1 1 0 0 1 1.993 -.117l.007 .117v1h6v-1a1 1 0 0 1 1 -1zm3 7h-14v9.625c0 .705 .386 1.286 .883 1.366l.117 .009h12c.513 0 .936 -.53 .993 -1.215l.007 -.16v-9.625z"></path>
+        <path d="M12 12a1 1 0 0 1 .993 .883l.007 .117v3a1 1 0 0 1 -1.993 .117l-.007 -.117v-2a1 1 0 0 1 -.117 -1.993l.117 -.007h1z"></path>
+      </svg>
+      <span>
+        {frontmatter.pubDate.toDateString()} | by {frontmatter.author}
+      </span>
+    </div>
+  </section>
+  <section class="content">
+    <slot />
+  </section>
+</Page>
+
+<style>
+  /* frontmatter */
+  .frontmatter {
+    h2 {
+      font-weight: 600;
+    }
+  }
+
+  .go-back {
+		margin-bottom: calc(var(--spacing) * 10);
+	}
+</style>

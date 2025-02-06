@@ -1,0 +1,44 @@
+---
+// CSS styles
+import '../style/props.scss';
+import '../style/reset.scss';
+import '../style/main.scss';
+
+// Components
+import Skip from '../components/Skip.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const { page, site } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{page} | {site}</title>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+  </head>
+  <body>
+    <Skip />
+    <main class="frame">
+      <Header page={page}/>
+      <slot />
+      <Footer />
+    </main>
+  </body>
+</html>
+
+<style>
+  .frame {
+    width: 100%;
+    max-width: var(--content-width);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    padding-inline: calc(var(--spacing) * 6);
+  }
+</style>

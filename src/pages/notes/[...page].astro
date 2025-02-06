@@ -1,0 +1,104 @@
+---
+import type { GetStaticPathsOptions } from 'astro';
+import { getCollection } from 'astro:content';
+import { sortByDate } from '../../scripts/utils';
+
+import Page from '../../components/Page.astro';
+import Card from '../../components/Card.astro';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const notes = sortByDate(await getCollection('notes'));
+  return paginate(
+    notes, { 
+      pageSize: 5
+    }
+  );
+}
+
+const { page } = Astro.props;
+---
+
+<Page
+  page="Notes",
+  site="Maths and physics on computers"
+>
+  <p class="topics">
+    Updates on my research and practical projects, discussion of open problems, and other maths/physics/ml-related topics.
+  </p>
+  { page.data.length > 0 && (
+    <section class="notes-list">
+      <ul>
+        { page.data.map(({ id, data }, i) => 
+          <Card id={id} frontmatter={data}></Card>
+        )}
+      </ul>
+    </section>
+  )}
+  { page.lastPage > 1 && (
+    <nav aria-label="Pagination">
+      <a
+        href={page.url.prev as string}
+        class={`prev ${page.url.prev ? "path" : "disabled"}`}
+        aria-label="Previous"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke-width="2" 
+          stroke-linejoin="round" 
+          stroke-linecap="round" 
+          stroke="currentColor"
+        >
+          <path d="M5 12l14 0"></path>
+          <path d="M5 12l4 4"></path>
+          <path d="M5 12l4 -4"></path>
+        </svg>
+        Prev
+      </a>
+      <span>{page.currentPage} / {page.lastPage}</span>
+      <a
+        href={page.url.next as string}
+        class={`next ${page.url.next ? "path" : "disabled"}`}
+        aria-label="Next"
+      >
+        Next
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2"
+        >
+          <path d="M5 12l14 0"></path>
+          <path d="M15 16l4 -4"></path>
+          <path d="M15 8l4 4"></path>
+        </svg>
+      </a>
+    </nav>
+  )}
+</Page>
+
+<style>
+  .topics {
+    margin-top: calc(var(--spacing) * 8);
+    font-style: italic;
+    opacity: 0.9;
+	}
+
+  /* pagination */
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .disabled {
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.5;
+  }
+  .prev { margin-right: calc(var(--spacing) * 4); }
+  .next { margin-left:  calc(var(--spacing) * 4); }
+</style>

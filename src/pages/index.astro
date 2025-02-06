@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+import { sortByDate } from '../scripts/utils';
+
+import Page from '../components/Page.astro';
+import Card from '../components/Card.astro';
+
+const notes = sortByDate(await getCollection('notes'));
+---
+
+<Page
+	page="hrkz",
+	site="Maths and physics on computers"
+>
+	<section class="hero">
+		<h1 class="title">Hugo Frezat</h1>
+		<h4 class="subtitle">Maths and physics on computers</h4>
+		<a
+			target="_blank"
+			href="/rss.xml"
+			aria-label="RSS feed"
+			title="RSS Feed"
+		>
+			<svg 
+				xmlns="http://www.w3.org/2000/svg" 
+				class="rss-icon"
+				viewBox="0 0 24 24" 
+				fill="none" 
+				stroke="currentColor" 
+				stroke-linecap="round" 
+				stroke-linejoin="round"
+				stroke-width="2"
+			>
+				<path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+				<path d="M4 4a16 16 0 0 1 16 16"></path>
+				<path d="M4 11a9 9 0 0 1 9 9"></path>
+			</svg>
+		</a>
+		<p class="heading">
+			I am a researcher exploring the intersection of statistical machine learning and numerical simulation for dynamical systems derived from 
+			differential equations. My primary focus is on climate modeling and astrophysical fluid dynamics, though I am always open to new ideas.
+		</p>
+		<p class="heading">
+			I [plan to] occasionally share notes on a variety of topics I come across in my research, ranging from theorems and numerical simulations 
+			to physics phenomena or computer science stuff. 
+		</p>
+		<img class="avatar" src="/assets/avatar.jpg" alt="" />
+	</section>
+	<hr />
+
+	{ notes.length > 0 &&
+		<section class="recent-notes">
+			<h3>Recent notes</h3>
+			<ul>
+				{ notes.map(({ id, data }, i) => i < 4 && 
+					<Card id={id} frontmatter={data}></Card>
+				)}
+			</ul>
+		</section>
+	}
+
+	<div class="all-notes">
+		<a href="/notes/" class="path">
+			All notes
+			<svg 
+				xmlns="http://www.w3.org/2000/svg" 
+				viewBox="0 0 24 24" 
+				fill="none" 
+				stroke="currentColor" 
+				stroke-linecap="round" 
+				stroke-linejoin="round" 
+				stroke-width="2"
+			>
+				<path d="M5 12l14 0"></path>
+				<path d="M15 16l4 -4"></path>
+				<path d="M15 8l4 4"></path>
+			</svg>
+		</a>
+	</div>
+</Page>
+
+<style>
+	/* hero section */
+	.hero {
+		padding-bottom: calc(var(--spacing) * 10);
+	}
+	.title {
+		margin-top: calc(var(--spacing) * 5);
+		font-weight: 700;
+	}
+	.subtitle {
+		display: inline-block;
+		font-style: italic;
+	}
+	.avatar {
+		width: 6rem;
+		height: 6rem;
+		margin-inline: auto;
+		margin-top: calc(var(--spacing) * 8);
+		border-radius: calc(infinity * 1px);
+	}
+	.rss-icon {
+		margin-bottom: calc(var(--spacing) * 2);
+		color: var(--color-accent);
+	}
+
+	/* list of recent notes */
+	.recent-notes {
+		padding-block: calc(var(--spacing) * 5);
+	}
+	.all-notes {
+		margin-bottom: calc(var(--spacing) * 10);
+		text-align: center;
+	}
+</style>
