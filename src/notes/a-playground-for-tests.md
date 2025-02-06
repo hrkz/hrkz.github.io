@@ -4,8 +4,8 @@ author: Hugo Frezat
 description: >
   This is a placeholder note that I am using for tests and has been particularly useful when styling the page.
   Obviously, it will be removed as soon as a first "real" note is ready.
-pubDate: 2022-07-11
-tags: ["astro", "blogging", "learning in public", "successes"]
+pubDate: 2025-02-6
+tags: ["astro", "placeholder"]
 ---
 
 ### Document and math typesetting
