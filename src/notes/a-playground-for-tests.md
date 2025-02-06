@@ -4,7 +4,7 @@ author: Hugo Frezat
 description: >
   This is a placeholder note that I am using for tests and has been particularly useful when styling the page.
   Obviously, it will be removed as soon as a first "real" note is ready.
-pubDate: 2025-02-6
+pubDate: 2025-02-06
 tags: ["astro", "placeholder"]
 ---
 
