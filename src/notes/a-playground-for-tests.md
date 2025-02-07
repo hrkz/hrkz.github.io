@@ -8,6 +8,21 @@ pubDate: 2025-02-06
 tags: ["astro", "placeholder"]
 ---
 
+**An example abstract:** In this paper, we propose a generic algorithm to train machine learning-based subgrid parametrizations online, i.e., with 
+_a posteriori_ loss functions, but for non-differentiable numerical solvers. The proposed approach leverages a neural emulator to approximate the 
+reduced state-space solver, which is then used to allow gradient propagation through temporal integration steps. We apply this methodology on a single 
+layer quasi-geostrophic system with topography, known to be highly unstable in around 500 temporal iterations with offline strategies. Using our 
+algorithm, we are able to train a parametrization that recovers most of the benefits of online strategies without having to compute the gradient of 
+the original solver. It is demonstrated that training the neural emulator and parametrization components separately with different loss quantities 
+is necessary in order to minimize the propagation of approximation biases. Experiments on emulator architectures with different complexities also 
+indicates that emulator performance is key in order to learn an accurate parametrization. This work is a step towards learning parametrization with 
+online strategies for weather models. 
+
+### Table of content
+
+* [Document and math typesetting](#document-and-math-typesetting)
+* [Other relevant elements](#other-relevant-elements)
+
 ### Document and math typesetting
 
 > _This is an extract from my last submitted paper._
