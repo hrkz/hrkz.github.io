@@ -18,10 +18,7 @@ is necessary in order to minimize the propagation of approximation biases. Exper
 indicates that emulator performance is key in order to learn an accurate parametrization. This work is a step towards learning parametrization with 
 online strategies for weather models. 
 
-### Table of content
-
-* [Document and math typesetting](#document-and-math-typesetting)
-* [Other relevant elements](#other-relevant-elements)
+### Contents
 
 ### Document and math typesetting
 
