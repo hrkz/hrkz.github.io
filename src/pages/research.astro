@@ -1,0 +1,75 @@
+---
+import Page from '../components/Page.astro';
+---
+
+<Page
+	page="Research",
+	site="Maths and physics on computers"
+>
+  <section class="publications">
+    <h2>Publications</h2>
+    <p class="topics">
+      This is an up-to-date list of the current papers that have been submitted or are in preparation. For a list of published papers along with 
+      metadata, check out my <a href="https://scholar.google.com/citations?user=9qYcZEQAAAAJ&hl=en">Google Scholar page</a>.
+    </p>
+    <h5 class="subtitle">In preparation</h5>
+    <ol>
+      <li>
+        <b>Hugo Frezat</b>, Thomas Gastine and Alexandre Fournier.
+        Learning subgrid-scale models in the presence of boundaries: quasi-geostrophic turbulence in the annulus.
+      </li>
+      <li>
+        Manohar K. Sharma, Thomas Frasson, <b>Hugo Frezat</b>, Nathanael Schaeffer and Franck Plunian.
+        Inferring sub-grid scale fluxes in spherical dynamo simulations using neural networks.
+      </li>
+    </ol>
+    <h5 class="subtitle">Submitted</h5>
+    <ol>
+      <li>
+        Fei Er Yan, <b>Hugo Frezat</b>, Julien Le Sommer, Julian Mak and Karl Otness.
+        Adjoint-based online learning of two-layer quasi-geostrophic baroclinic turbulence.
+        <i>Submitted to Journal of Advances in Modeling Earth Systems</i>, <a href="https://arxiv.org/abs/2411.14106">preprint on arXiv</a>,
+        November 2024.
+      </li>
+      <li>
+        <b>Hugo Frezat</b>, Ronan Fablet, Guillaume Balarac and Julien Le Sommer.
+        Gradient-free online learning of subgrid-scale dynamics with neural emulators.
+        <i>Submitted to Journal of Advances in Modeling Earth Systems</i>, <a href="https://arxiv.org/abs/2310.19385">preprint on arXiv</a>,
+        November 2023.
+      </li>
+    </ol>
+    <h5 class="subtitle">Published</h5>
+    <ol>
+      <li>
+        <b>Hugo Frezat</b>, Julien Le Sommer, Ronan Fablet, Guillaume Balarac and Redouane Lguensat. 
+        A posteriori learning for quasi-geostrophic turbulence parametrization. 
+        <i>Journal of Advances in Modeling Earth Systems</i>, <a href="https://doi.org/10.1029/2022MS003124">14(11):e2022MS003124</a>, 
+        November 2022.
+      </li>
+      <li>
+        <b>Hugo Frezat</b>, Guillaume Balarac, Julien Le Sommer, Ronan Fablet and Redouane Lguensat.
+        Physical invariance in neural networks for subgrid-scale scalar flux modeling.
+        <i>Physical Review Fluids</i>, <a href="https://doi.org/10.1103/PhysRevFluids.6.024607">6(2):024607</a>, 
+        February 2021.
+      </li>
+    </ol>
+  </section>
+</Page>
+
+<style>
+  .publications {
+    .subtitle { 
+      font-weight: 600;
+      margin-block: calc(var(--spacing) * 2);
+    }
+    ol {
+      list-style-type: decimal;
+      margin-inline: calc(var(--spacing) * 5);
+
+      li {
+        text-align: justify;
+        font-size: calc(var(--text-body) * 0.9);
+      }
+    }
+  }
+</style>
