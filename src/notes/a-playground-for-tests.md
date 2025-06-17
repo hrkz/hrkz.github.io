@@ -22,7 +22,7 @@ online strategies for weather models.
 
 ### Document and math typesetting
 
-> _This is an extract from my last submitted paper._
+> _This is an extract from a published paper._
 
 In turbulent flows, the energy cascade drives energy from the large scales to the small scales until molecular viscous dissipation (forward-scatter), 
 but the inverse transfer called backscatter in which energy is transferred from the small scales back to the large scales 

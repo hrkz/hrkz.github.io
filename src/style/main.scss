@@ -78,6 +78,11 @@ svg {
     font-size: var(--text-code);
   }
 }
+.topics {
+  margin-top: calc(var(--spacing) * 8);
+  font-style: italic;
+  opacity: 0.9;
+}
 
 /* utils */
 .hide {
