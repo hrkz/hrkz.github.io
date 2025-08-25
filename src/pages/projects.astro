@@ -7,4 +7,35 @@ import Page from '../components/Page.astro';
 	site="Maths and physics on computers"
 >
   <section></section>
+	<section class="research">
+		<h2>Research</h2>
+		<p class="topics">
+      This is an up-to-date list of the research papers that are still in preparation. For a list of submitted (preprints) and published papers 
+			along with metadata, check out my <a href="https://scholar.google.com/citations?user=9qYcZEQAAAAJ&hl=en">Google Scholar page</a>.
+			Note that I now organise reproducible versions of my research as GitHub repositories under a separate organization [work-in-progress].
+    </p>
+		<ul class="pub-list">
+      <li>
+        <u>H. Frezat</u>, T. Gastine and A. Fournier.
+        <b>Learning subgrid-scale models in the presence of boundaries: quasi-geostrophic turbulence in the annulus.</b>
+      </li>
+      <li>
+        M. K. Sharma, T. Frasson, <u>H. Frezat</u>, N. Schaeffer and F. Plunian.
+        <b>Inferring sub-grid scale fluxes in spherical dynamo simulations using neural networks.</b>
+      </li>
+    </ul>
+	</section>
 </Page>
+
+<style>
+	/* research */
+	.pub-list {
+		margin-inline: calc(var(--spacing) * 5);
+		list-style-type: disc;
+
+		li {
+			text-align: justify;
+			font-size: calc(var(--text-code));
+		}
+	}
+</style>
