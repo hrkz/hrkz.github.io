@@ -18,9 +18,13 @@ is necessary in order to minimize the propagation of approximation biases. Exper
 indicates that emulator performance is key in order to learn an accurate parametrization. This work is a step towards learning parametrization with 
 online strategies for weather models. 
 
+**Key words** : quasi-geostrophic turbulence, subgrid-scale model, machine learning
+
+<hr />
+
 ### Contents
 
-### Document and math typesetting
+### Introduction
 
 > _This is an extract from a published paper._
 

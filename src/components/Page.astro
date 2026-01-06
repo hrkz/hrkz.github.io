@@ -1,13 +1,16 @@
 ---
 // CSS styles
-import '../style/props.scss';
 import '../style/reset.scss';
 import '../style/main.scss';
 
 // Components
-import Skip from '../components/Skip.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+interface Props {
+  page: string;
+  site?: string;
+}
 
 const { page, site } = Astro.props;
 ---
@@ -22,23 +25,10 @@ const { page, site } = Astro.props;
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
   </head>
   <body>
-    <Skip />
-    <main class="frame">
-      <Header page={page}/>
-      <slot />
-      <Footer />
-    </main>
+		<div class="frame">
+			<Header page={page}/>
+				<slot />
+			<Footer />
+		</div>
   </body>
 </html>
-
-<style>
-  .frame {
-    width: 100%;
-    max-width: var(--content-width);
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    margin-inline: auto;
-    padding-inline: calc(var(--spacing) * 6);
-  }
-</style>

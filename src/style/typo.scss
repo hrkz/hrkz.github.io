@@ -1,28 +1,8 @@
 /* markdown-type content */
-.content {
-  margin-bottom: 1em;
+.md-content {
   /* global settings */
   :not(p, a, strong, em, del, span, input, button, code, svg, br) {
-    margin-top: 1em;
-  }
-
-  /* text */
-  p {
     margin-top: 0.5em;
-  }
-  h1, 
-  h2, 
-  h3, 
-  h4, 
-  h5 {
-    font-weight: 600;
-  }
-  a {
-    color: var(--color-accent);
-    text-decoration: underline;
-    &:hover { 
-      color: var(--text-color); 
-    }
   }
 
   /* list */
@@ -33,8 +13,8 @@
     list-style-type: disc;
   }
   ol,
-  ul {
-    padding-inline-start: 2em;
+  ul {	
+    padding-inline-start: 1.5em;
   }
   li {
     margin-block: 0;
@@ -47,7 +27,7 @@
   > ol > li > p:first-child { margin-top: 1.25em }
   > ol > li > p:last-child { margin-bottom: 1.25em }
   ul ul, ul ol, ol ul, ol ol {
-    margin-block: 0.25em;
+    margin-block: 0.5em;
   }
 
   /* aside */
@@ -55,6 +35,7 @@
   details {
     padding-inline-start: 1em;
     border-inline-start: 3px solid var(--color-accent);
+
     &:hover {
       border-color: var(--color-text);
     }
@@ -72,27 +53,23 @@
   video, 
   canvas, 
   svg, 
-  iframe {
+  iframe,
+	figure {
     max-width: 100%;
     height: auto;
-  }
-  figcaption,
-  small {
-    margin-top: 0.5em;
-    font-size: 0.8rem;
-    line-height: 1.25;
+		margin: auto;
   }
   
   /* table */
   table {
-    display: block;
     overflow: auto;
+		margin: auto;
     border-spacing: 0;
   }
   td,
   th {
-    border-bottom: 1px solid var(--color-border);
-    padding: 0.5em 1em;
+		padding: 0.5em 1em;
+    border-bottom: 1px solid var(--color-inactive);
     vertical-align: baseline;
   }
   th:not([align]) {
@@ -103,11 +80,11 @@
 
   /* code */
   code {
-    font-size: var(--text-code);
+    font-size: var(--text-size-code);
   }
   pre {
     display: flex;
-    border-radius: 6px;
+    border-radius: 16px;
     > code {
       padding: 0.75em;
     }
@@ -115,19 +92,18 @@
   :not(pre) > code {
     padding: 0.125em 0.375em;
     margin-block: -0.125em;
-    background-color: var(--color-border);
-    font-size: var(--text-code);
+    background-color: var(--color-text);
+    font-size: var(--text-size-code);
     tab-size: 2;
-  }
-  :is(h1, h2, h3, h4, h5, h6) code {
-    font-size: inherit;
   }
 }
 
 .astro-code,
 .astro-code span {
-  background-color: var(--color-border) !important;
+  background-color: var(--color-hover) !important;
 }
-[data-theme="dark"] :is(.astro-code, .astro-code span) {
-  color: var(--shiki-dark) !important;
+@media (prefers-color-scheme: dark) { 
+	:is(.astro-code, .astro-code span) {
+  	color: var(--shiki-dark) !important;
+	}
 }

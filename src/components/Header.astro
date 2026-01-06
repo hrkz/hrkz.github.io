@@ -1,137 +1,269 @@
 ---
-import Theme from '../components/Theme.astro';
 import Search from '../components/Search.astro';
 
 const { page } = Astro.props;
 ---
 
 <header>
-  <a href="/" class="logo"><h3>hrkz</h3></a>
-  <nav aria-label="Menu">
-    <button
-      class="menu-toggler show-resp"
-      aria-label="Open/close navigation menu"
-      aria-expanded="false"
-      aria-controls="menu-items"
-    >
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        class="menu-icons"
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        stroke-linecap="round" 
-        stroke-linejoin="round" 
-        stroke-width="2"
-      >
-        <path d="M4 6l16 0" class="icon-show"></path>
-        <path d="M10 12l10 0" class="icon-show"></path>
-        <path d="M6 18l14 0" class="icon-show"></path>
-        <path d="M18 6l-12 12" class="icon-hide"></path>
-        <path d="M6 6l12 12" class="icon-hide"></path>
-      </svg>
-    </button>
-    <ul class="menu-items hide">
-      <li><a href="/notes/" class=`${page === 'Notes' ? 'path cur-page' : ''}`>Notes</a></li>
-      <li><a href="/about/" class=`${page === 'About' ? 'path cur-page' : ''}`>About</a></li>
-      <li><a href="/projects/" class=`${page === 'Projects' ? 'path cur-page' : ''}`>Projects</a></li>
-      <li><Theme /></li>
-      <!--<li><Search /></li>-->
-    </ul>
+	<input type="checkbox" id="rail-btn">
+	<label for="rail-btn" class="menu-icon menu-btn close-btn">
+		<svg 
+			xmlns="http://www.w3.org/2000/svg" 
+			height="24px" 
+			viewBox="0 -960 960 960" 
+			width="24px"
+		>
+			<path d="M120-240v-80h520v80H120Zm664-40L584-480l200-200 56 56-144 144 144 144-56 56ZM120-440v-80h400v80H120Zm0-200v-80h520v80H120Z"/>
+		</svg>
+	</label>
+	<label for="rail-btn" class="menu-icon menu-btn open-btn">
+		<svg 
+			xmlns="http://www.w3.org/2000/svg" 
+			height="24px" 
+			viewBox="0 -960 960 960" 
+			width="24px"
+		>
+			<path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+		</svg>
+	</label>
+	<img class="logo" src="/assets/avatar.jpg" alt="" />
+	<a href="/"><span class="title">Sim. Nat.</span></a>
+  <nav class="menu">
+    <a href="/about/" class=`${page === 'About' ? 'active-page' : ''}`>About</a>
+    <a href="/research/" class=`${page === 'Research' ? 'active-page' : ''}`>Research</a>
+    <a href="/projects/" class=`${page === 'Projects' ? 'active-page' : ''}`>Projects</a>
+    <a href="/notes/" class=`${page === 'Notes' ? 'active-page' : ''}`>Notes</a>
   </nav>
+
+	<div class="actions">
+		<Search />
+		<a
+			target="_blank"
+			href="/rss.xml"
+			aria-label="RSS feed"
+			title="RSS Feed"
+		>
+			<svg 
+				xmlns="http://www.w3.org/2000/svg" 
+				height="24px" 
+				viewBox="0 -960 960 960" 
+				width="24px" 
+				fill="currentColor"
+			>
+				<path d="M200-120q-33 0-56.5-23.5T120-200q0-33 23.5-56.5T200-280q33 0 56.5 23.5T280-200q0 33-23.5 56.5T200-120Zm480 0q0-117-44-218.5T516-516q-76-76-177.5-120T120-680v-120q142 0 265 53t216 146q93 93 146 216t53 265H680Zm-240 0q0-67-25-124.5T346-346q-44-44-101.5-69T120-440v-120q92 0 171.5 34.5T431-431q60 60 94.5 139.5T560-120H440Z"/>
+			</svg>
+		</a>
+	</div>
+
+	<aside class="rail">
+		<a href="/" class=`${page === 'hrkz' ? 'active-page' : ''}`>
+			<label class="menu-btn">
+				<svg 
+					xmlns="http://www.w3.org/2000/svg" 
+					height="24px" 
+					viewBox="0 -960 960 960" 
+					width="24px"
+				>
+					<path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/>
+				</svg>
+			</label>
+			<span>Home</span>
+		</a>
+		<a href="/about/" class=`${page === 'About' ? 'active-page' : ''}`>
+			<label class="menu-btn">
+				<svg 
+					xmlns="http://www.w3.org/2000/svg" 
+					height="24px" 
+					viewBox="0 -960 960 960" 
+					width="24px"
+				>
+					<path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+				</svg>
+			</label>
+			<span>About</span>
+		</a>
+    <a href="/research/" class=`${page === 'Research' ? 'active-page' : ''}`>
+			<label class="menu-btn">
+				<svg 
+					xmlns="http://www.w3.org/2000/svg" 
+					height="24px" 
+					viewBox="0 -960 960 960" 
+					width="24px"
+				>
+					<path d="M400-240v-80h62l105-120-105-120h-66l-64 344q-8 45-37 70.5T221-120q-45 0-73-24t-28-64q0-32 17-51.5t43-19.5q25 0 42.5 17t17.5 41q0 5-.5 9t-1.5 9q5-1 8.5-5.5T252-221l62-339H200v-80h129l21-114q7-38 37.5-62t72.5-24q44 0 72 26t28 65q0 30-17 49.5T500-680q-25 0-42.5-17T440-739q0-5 .5-9t1.5-9q-6 2-9 6t-5 12l-17 99h189v80h-32l52 59 52-59h-32v-80h200v80h-62L673-440l105 120h62v80H640v-80h32l-52-60-52 60h32v80H400Z"/>
+				</svg>
+			</label>
+			<span>Research</span>
+		</a>
+    <a href="/projects/" class=`${page === 'Projects' ? 'active-page' : ''}`>
+			<label class="menu-btn">
+				<svg 
+					xmlns="http://www.w3.org/2000/svg" 
+					height="24px" 
+					viewBox="0 -960 960 960" 
+					width="24px"
+				>
+					<path d="m656-120-56-56 63-64-63-63 56-57 64 64 63-64 57 57-64 63 64 64-57 56-63-63-64 63Zm-416-80q17 0 28.5-11.5T280-240q0-17-11.5-28.5T240-280q-17 0-28.5 11.5T200-240q0 17 11.5 28.5T240-200Zm0 80q-50 0-85-35t-35-85q0-50 35-85t85-35q37 0 67.5 20.5T352-284q39-11 63.5-43t24.5-73v-160q0-83 58.5-141.5T640-760h46l-63-63 57-57 160 160-160 160-57-56 63-64h-46q-50 0-85 35t-35 85v160q0 73-47 128.5T354-203q-12 37-43.5 60T240-120Zm-64-480-56-56 63-64-63-63 56-57 64 64 63-64 57 57-64 63 64 64-57 56-63-63-64 63Z"/>
+				</svg>
+			</label>
+			<span>Projects</span>
+		</a>
+    <a href="/notes/" class=`${page === 'Notes' ? 'active-page' : ''}`>
+			<label class="menu-btn">
+				<svg 
+					xmlns="http://www.w3.org/2000/svg" 
+					height="24px" 
+					viewBox="0 -960 960 960" 
+					width="24px"
+				>
+					<path d="M280-280h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/>
+				</svg>
+			</label>
+			<span>Notes</span>
+		</a>
+	</aside>
+	<label for="rail-btn" class="overlay"></label>
 </header>
-<hr />
 
 <style>
-  /* header */
-  header {
-    display: flex;
-    padding-block: calc(var(--spacing) * 4);
-    @media screen and (min-width: 768px) {
-      align-items: center;
-    }
-  }
+	/* header */
+	:global(header) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		height: 64px;
+		padding-inline: 16px;
+		align-items: center;
+		background-color: var(--color-surface);
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,.15),0 2px 5px 0 rgba(0,0,0,.25);
+		z-index: 10;
 
-  /* elements */
-  .logo {
-    position: absolute;
-    text-transform: uppercase;
-  }
+		input {
+			display: none;
+		}
 
-  /* navigation */
-  nav {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    @media screen and (min-width: 768px) {
-      flex-direction: row;
-      justify-content: flex-end;
-    }
+		.menu-icon {
+			cursor: pointer;
+			align-items: center;
+			fill: var(--color-inactive);
 
-    /* menu list */
-    ul {
-      grid-template-columns: 3;
-      column-gap: 1.25rem;
-      
-      li {
-        display: flex;
-        padding-block: calc(var(--spacing) * 2);
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  }
+			&:hover {
+				fill: var(--color-text);
+			}
+		}
 
-  /* current tab */
-  .cur-page {
-    text-decoration-style: solid;
-  }
+		.menu-btn {
+			display: none;
+			margin-right: 24px;
+		}
 
-  /* menu (responsive screens) */
-  .menu-toggler {
-    align-self: flex-end;
-    padding-block: calc(var(--spacing) * 4);
-  }
-  .menu-icons {
-    .icon-show { opacity: 1; }
-    .icon-hide { opacity: 0; }
-  }
-  .menu-icons.expanded {
-    .icon-show { opacity: 0; }
-    .icon-hide { opacity: 1; }
-  } 
-  .menu-items {
-    @media screen and (min-width: 768px) {
-      display: flex;
-    }
-  }
+		a {
+			display: flex;
+			padding-block: 8px;
+			font-size: 0.75rem;
+			color: var(--color-inactive);
+			fill: var(--color-inactive);
+		}
+
+		.title {
+			font-size: 1.2rem;
+		}
+
+		.active-page {
+			color: var(--color-text);
+		}
+
+		/* menu bar (desktop) */
+		.menu {
+			display: flex;
+			align-items: end;
+			margin-left: 50px;
+
+			.active-page {
+				border-bottom: 2px solid var(--color-accent);
+			}
+
+			a {
+				margin-top: 5px;
+				padding-inline: 24px;
+
+				&:hover {
+					background-color: var(--color-hover);
+				}
+			}
+		}
+
+		.actions {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+			margin-left: auto;
+		}
+
+		/* rail menu (tablet and mobile) */
+		.rail {
+			position: fixed;
+			top: 0;
+			left: 0;
+			display: flex;
+			flex-direction: column;
+			width: 350px;
+			height: 100%;
+			padding-top: 64px;
+			background-color: var(--color-surface);
+			transform: translateX(-100%);
+			transition: transform 0.3s ease;
+			z-index: 100;
+
+			a:hover, 
+			.active-page {
+				background-color: var(--color-hover);
+			}
+
+			a {
+				align-items: center;
+				margin-inline: 16px;
+				border-start-end-radius: 100px;
+				border-end-end-radius: 100px;
+			}
+		}
+
+		/* opened rail */
+		#rail-btn:checked ~ .rail {
+			transform: translateX(0);
+		}
+
+		#rail-btn:checked ~ .overlay {
+			opacity: 0.5;
+			pointer-events: auto;
+		}
+
+		#rail-btn:checked ~ .close-btn {
+			display: flex;
+			z-index: 110;
+		}
+
+		.overlay {
+			position: fixed;
+			inset: 0;
+			background: var(--color-inactive);
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.3s ease;
+			z-index: 99;
+		}
+
+		@media (max-width: 1024px) {
+			.menu-btn {
+				display: flex;
+			}
+
+			.menu, 
+			.close-btn {
+				display: none;
+			}
+		}
+	}
 </style>
-
-<script>
-  // Query the menu classes (toggler, items and icons).
-  const toggle = document.querySelector('.menu-toggler')!;
-  const items = document.querySelector('.menu-items')!;
-  const icons = document.querySelector('.menu-icons')!;
-
-  /** Update UI visibility. */
-  function setExpanded(expanded: boolean): void {
-    toggle.setAttribute('aria-expanded', String(expanded));
-    items.classList.toggle('hide');
-    icons.classList.toggle('expanded');
-  }
-
-  toggle.addEventListener('click', () => {
-    setExpanded(toggle.getAttribute('aria-expanded') !== 'true');
-  });
-
-  // Close menu on escape calls.
-  const nav = toggle.closest('nav');
-  if (nav) {
-    nav.addEventListener('keyup', (e) => {
-      if (e.code === 'Escape') {
-        setExpanded(false);
-      }
-    });
-  }
-</script>

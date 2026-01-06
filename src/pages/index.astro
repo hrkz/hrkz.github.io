@@ -3,113 +3,255 @@ import { getCollection } from 'astro:content';
 import { sortByDate } from '../scripts/utils';
 
 import Page from '../components/Page.astro';
-import Card from '../components/Card.astro';
+import Entry from '../components/Entry.astro';
 
 const notes = sortByDate(await getCollection('notes'));
 ---
 
 <Page
-	page="hrkz",
-	site="Maths and physics on computers"
+	page="Hugo Frezat &quot;hrkz&quot;",
+	site="Simulating Nature"
 >
-	<section class="hero">
-		<h1 class="title">Hugo Frezat</h1>
-		<h4 class="subtitle">Maths and physics on computers</h4>
-		<a
-			target="_blank"
-			href="/rss.xml"
-			aria-label="RSS feed"
-			title="RSS Feed"
-		>
-			<svg 
-				xmlns="http://www.w3.org/2000/svg" 
-				class="rss-icon"
-				viewBox="0 0 24 24" 
-				fill="none" 
-				stroke="currentColor" 
-				stroke-linecap="round" 
-				stroke-linejoin="round"
-				stroke-width="2"
-			>
-				<path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-				<path d="M4 4a16 16 0 0 1 16 16"></path>
-				<path d="M4 11a9 9 0 0 1 9 9"></path>
-			</svg>
-		</a>
-		<p class="heading">
-			I am a researcher exploring the intersection of statistical machine learning and numerical simulation for dynamical systems derived from 
-			differential equations. My primary focus is on climate modeling and astrophysical fluid dynamics, though I am always open to new ideas.
-		</p>
-		<p class="heading">
-			I [plan to] occasionally share notes on a variety of topics I come across in my research, ranging from theorems and numerical simulations 
-			to physics phenomena or computer science stuff. 
-		</p>
-		<img class="avatar" src="/assets/avatar.jpg" alt="" />
-	</section>
-	<hr />
-
-	{ notes.length > 0 &&
-		<section class="recent-notes">
-			<h3>Recent notes</h3>
-			<ul>
-				{ notes.map(({ id, data }, i) => i < 4 && 
-					<Card id={id} frontmatter={data}></Card>
-				)}
-			</ul>
+	<div class="full-page">
+		<section class="hero">
+			<h2>Hugo Frezat <i>"hrkz"</i></h2>
+			<span>
+				I am a researcher exploring the intersection of statistical machine learning and numerical simulation for dynamical systems derived from 
+				differential equations. My primary focus is on climate-related systems (oceans, atmosphere) 
+				and astrophysical fluid dynamics (planetary interiors, geodynamo, etc.), though I am always open to new applications.
+			</span>
+			<span>
+				I [plan to] occasionally share notes on a variety of topics I come across in my research, ranging from theorems and numerical simulations 
+				to physics phenomena or computer science stuff. 
+			</span>
 		</section>
-	}
+	</div>
 
-	<div class="all-notes">
-		<a href="/notes/" class="path">
-			All notes
-			<svg 
-				xmlns="http://www.w3.org/2000/svg" 
-				viewBox="0 0 24 24" 
-				fill="none" 
-				stroke="currentColor" 
-				stroke-linecap="round" 
-				stroke-linejoin="round" 
-				stroke-width="2"
-			>
-				<path d="M5 12l14 0"></path>
-				<path d="M15 16l4 -4"></path>
-				<path d="M15 8l4 4"></path>
-			</svg>
-		</a>
+	<div class="full-page">
+		<section>
+			<div class="section-title">
+				<svg 
+					xmlns="http://www.w3.org/2000/svg" 
+					height="24px" 
+					viewBox="0 -960 960 960" 
+					width="24px"
+				>
+					<path d="m656-120-56-56 63-64-63-63 56-57 64 64 63-64 57 57-64 63 64 64-57 56-63-63-64 63Zm-416-80q17 0 28.5-11.5T280-240q0-17-11.5-28.5T240-280q-17 0-28.5 11.5T200-240q0 17 11.5 28.5T240-200Zm0 80q-50 0-85-35t-35-85q0-50 35-85t85-35q37 0 67.5 20.5T352-284q39-11 63.5-43t24.5-73v-160q0-83 58.5-141.5T640-760h46l-63-63 57-57 160 160-160 160-57-56 63-64h-46q-50 0-85 35t-35 85v160q0 73-47 128.5T354-203q-12 37-43.5 60T240-120Zm-64-480-56-56 63-64-63-63 56-57 64 64 63-64 57 57-64 63 64 64-57 56-63-63-64 63Z"/>
+				</svg>
+				<span>Projects</span>
+			</div>
+			<div class="projects">
+				<div class="card">
+					<img src="https://placehold.co/400x300/png" class="card-image" />
+					<div class="card-content">
+						<a href="/projects#[name]"><h3>[Name]</h3></a>
+						<p>
+							Differentiable FV solver for layered and primitive equations (focused ocean) using JAX.
+						</p>
+						<a href="#">
+							<span>Project page</span>
+							<svg 
+								xmlns="http://www.w3.org/2000/svg" 
+								height="24px" 
+								viewBox="0 -960 960 960" 
+								width="24px"
+							>
+								<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
+							</svg>
+						</a>
+					</div>
+        </div>
+				<div class="card">
+					<img src="https://placehold.co/400x300/png" class="card-image">
+					<div class="card-content">
+						<a href="/projects#given"><h3>Given</h3></a>
+						<p>
+							Symbolic manipulation and theorem proving using equivalence graphs in Rust.
+						</p>
+						<a href="#">
+							<span>Project page</span>
+							<svg 
+								xmlns="http://www.w3.org/2000/svg" 
+								height="24px" 
+								viewBox="0 -960 960 960" 
+								width="24px"
+							>
+								<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
+							</svg>
+						</a>
+					</div>
+        </div>
+				<div class="card">
+					<img src="https://placehold.co/400x300/png" class="card-image">
+					<div class="card-content">
+						<a href="/projects#vario"><h3>Vario</h3></a>
+						<p>
+							High-order DG solver for conservation laws running with SPIR-V (GPU) acceleration.
+						</p>
+						<a href="#">
+							<span>Project page</span>
+							<svg 
+								xmlns="http://www.w3.org/2000/svg" 
+								height="24px" 
+								viewBox="0 -960 960 960" 
+								width="24px"
+							>
+								<path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div class="full-page">
+		<section>
+		{ notes.length > 0 &&
+			<div class="recent-notes">
+				<div class="section-title">
+					<svg 
+						xmlns="http://www.w3.org/2000/svg" 
+						height="24px" 
+						viewBox="0 -960 960 960" 
+						width="24px"
+					>
+						<path d="M280-280h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/>
+					</svg>
+					<span>Recent notes</span>
+				</div>
+				<ul>
+					{ notes.map(({ id, data }, i) => i < 4 && 
+						<Entry id={id} frontmatter={data}></Entry>
+					)}
+				</ul>
+			</div>
+		}
+
+			<div class="more-notes">
+				<a href="/notes/" class="more-btn">Read more notes</a>
+			</div>
+		</section>
+	</div>
+
+	<div class="full-page">
+		<section>
+			<div class="section-title">
+				<svg 
+					xmlns="http://www.w3.org/2000/svg" 
+					height="24px" 
+					viewBox="0 -960 960 960" 
+					width="24px"
+				>
+					<path d="M680-80q-50 0-85-35t-35-85q0-6 3-28L282-392q-16 15-37 23.5t-45 8.5q-50 0-85-35t-35-85q0-50 35-85t85-35q24 0 45 8.5t37 23.5l281-164q-2-7-2.5-13.5T560-760q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35q-24 0-45-8.5T598-672L317-508q2 7 2.5 13.5t.5 14.5q0 8-.5 14.5T317-452l281 164q16-15 37-23.5t45-8.5q50 0 85 35t35 85q0 50-35 85t-85 35Zm0-80q17 0 28.5-11.5T720-200q0-17-11.5-28.5T680-240q-17 0-28.5 11.5T640-200q0 17 11.5 28.5T680-160ZM200-440q17 0 28.5-11.5T240-480q0-17-11.5-28.5T200-520q-17 0-28.5 11.5T160-480q0 17 11.5 28.5T200-440Zm480-280q17 0 28.5-11.5T720-760q0-17-11.5-28.5T680-800q-17 0-28.5 11.5T640-760q0 17 11.5 28.5T680-720Zm0 520ZM200-480Zm480-280Z"/>
+				</svg>
+				<span>Outreach</span>
+			</div>
+		</secton>
+	</div>
+
+	<div class="full-page">
+		<section>
+			<div class="section-title">
+				<svg 
+					xmlns="http://www.w3.org/2000/svg" 
+					height="24px" 
+					viewBox="0 -960 960 960" 
+					width="24px"
+				>
+					<path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h168q14-36 44-58t68-22q38 0 68 22t44 58h168q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm280-670q13 0 21.5-8.5T510-820q0-13-8.5-21.5T480-850q-13 0-21.5 8.5T450-820q0 13 8.5 21.5T480-790ZM200-246q54-53 125.5-83.5T480-360q83 0 154.5 30.5T760-246v-514H200v514Zm280-194q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41ZM280-200h400v-10q-42-35-93-52.5T480-280q-56 0-107 17.5T280-210v10Zm200-320q-25 0-42.5-17.5T420-580q0-25 17.5-42.5T480-640q25 0 42.5 17.5T540-580q0 25-17.5 42.5T480-520Zm0 17Z"/>
+				</svg>
+				<span>CV</span>
+			</div>
+		</section>
 	</div>
 </Page>
 
 <style>
-	/* hero section */
-	.hero {
-		padding-bottom: calc(var(--spacing) * 10);
-	}
-	.title {
-		margin-top: calc(var(--spacing) * 5);
-		font-weight: 700;
-	}
-	.subtitle {
-		display: inline-block;
-		font-style: italic;
-	}
-	.avatar {
-		width: 6rem;
-		height: 6rem;
-		margin-inline: auto;
-		margin-top: calc(var(--spacing) * 8);
-		border-radius: calc(infinity * 1px);
-	}
-	.rss-icon {
-		margin-bottom: calc(var(--spacing) * 2);
-		color: var(--color-accent);
+	.full-page:nth-child(odd) {
+		background-color: var(--color-hover);
 	}
 
-	/* list of recent notes */
-	.recent-notes {
-		padding-block: calc(var(--spacing) * 5);
+	.section-title {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: calc(0.1 * var(--base-size));
+		padding-block: calc(0.2 * var(--base-size));
+		text-transform: uppercase;
+		fill: var(--color-text);
 	}
-	.all-notes {
-		margin-bottom: calc(var(--spacing) * 10);
-		text-align: center;
+
+	/* hero section */
+	.hero {
+		display: flex;
+		flex-direction: column;
+		row-gap: 18px;
+		margin-block: calc(var(--base-size));
+	}
+
+	/* projects section */
+	.projects {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(calc(var(--base-size)), 1fr));
+		gap: calc(0.25 * var(--base-size));
+
+		.card {
+			height: calc(5 * var(--base-size));
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			overflow: hidden;
+			background-color: var(--color-surface);
+			border: 1px solid rgb(from var(--color-inactive) r g b / .3);
+			border-radius: 8px;
+			transition: all .3s ease;
+
+			&:hover {
+				box-shadow: 0 4px 8px 3px rgba(0,0,0,.15),0 1px 3px 0 rgba(0,0,0,.3);
+			}
+
+			.card-image {
+				width: calc(100%);
+				height: calc(2 * var(--base-size));
+				object-fit: cover;
+				border-radius: 8px 8px 0 0;
+			}
+
+			.card-content {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-evenly;
+				padding: calc(0.1 * var(--base-size));
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.projects {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	/* recent-notes section */
+	.more-notes {
+		margin-top: calc(0.25 * var(--base-size));
+		
+		.more-btn {
+			display: block;
+			width: calc(3 * var(--base-size));
+			padding-block: calc(0.15 * var(--base-size));
+			margin: auto;
+			text-align: center;
+			border: 1px solid var(--color-inactive);
+			border-radius: 48px;
+
+			&:hover {
+				color: var(--color-focus);
+				border-color: var(--color-focus);
+				background-color: rgb(from var(--color-accent) r g b / .1);
+			}
+		}
 	}
 </style>
