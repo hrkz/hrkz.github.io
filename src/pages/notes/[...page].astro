@@ -36,7 +36,7 @@ const { page } = Astro.props;
         <div class="pagination">
           <a
             href={page.url.prev as string}
-            class={`prev ${page.url.prev ? "" : "endpoint"}`}
+            class={`${page.url.prev ? "" : "endpoint"}`}
             aria-label="Previous"
           >
             <svg
@@ -44,6 +44,7 @@ const { page } = Astro.props;
               height="24px"
               viewBox="0 -960 960 960"
               width="24px"
+							fill="currentColor"
             >
               <path d="m480-320 56-56-64-64h168v-80H472l64-64-56-56-160 160 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
             </svg>
@@ -53,7 +54,7 @@ const { page } = Astro.props;
           </span>
           <a
             href={page.url.next as string}
-            class={`next ${page.url.next ? "" : "endpoint"}`}
+            class={`${page.url.next ? "" : "endpoint"}`}
             aria-label="Next"
           >
             <svg
@@ -61,6 +62,7 @@ const { page } = Astro.props;
               height="24px"
               viewBox="0 -960 960 960"
               width="24px"
+							fill="currentColor"
             >
               <path d="m480-320 160-160-160-160-56 56 64 64H320v80h168l-64 64 56 56Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
             </svg>
