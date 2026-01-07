@@ -5,27 +5,30 @@ const { id, frontmatter } = Astro.props;
 <li>
   <div class="entry">
     <h4><a href={`/notes/${id}`}><b>{frontmatter.title}</b></a></h4>
-		<div class="info">
-      <label><i>{frontmatter.pubDate.toDateString()}</i> · {frontmatter.tags.join(' | ')}</label>
+    <div class="info">
+      <label
+        ><i>{frontmatter.pubDate.toDateString()}</i> · {
+          frontmatter.tags.join(" | ")
+        }</label
+      >
     </div>
-		<span>{frontmatter.description}</span>
-		<div>
-			<label>by <a href="#">{frontmatter.author}</a></label>
-		</div>
+    <span>{frontmatter.description}</span>
+    <div>
+      <label>by <a href="#">{frontmatter.author}</a></label>
+    </div>
   </div>
-	<hr />
+  <hr />
 </li>
 
 <style>
-	/* note entry */
-	.entry {
-		padding-block: calc(0.15 * var(--base-size));
+  .entry {
+    padding-block: calc(0.15 * var(--base-size));
 
-		.info {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			margin-bottom: calc(0.05 * var(--base-size));
-		}
-	}
+    .info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: calc(0.05 * var(--base-size));
+    }
+  }
 </style>

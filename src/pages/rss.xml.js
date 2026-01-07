@@ -1,12 +1,12 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
-import { sortByDate } from '../scripts/utils';
+import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
+import { sortByDate } from "../scripts/utils";
 
 export async function GET(context) {
-  const notes = sortByDate(await getCollection('notes'));
+  const notes = sortByDate(await getCollection("notes"));
   return rss({
-    title: 'Hugo Frezat: maths and physics on computers',
-    description: 'Random notes at random times',
+    title: "Hugo Frezat: maths and physics on computers",
+    description: "Random notes at random times",
     site: context.site,
     items: notes.map((note) => ({
       title: note.data.title,

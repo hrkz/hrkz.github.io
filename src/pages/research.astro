@@ -1,32 +1,37 @@
 ---
-import Page from '../components/Page.astro';
+import Page from "../components/Page.astro";
 ---
 
-<Page
-	page="Research",
-	site="Simulating Nature"
->
-	<section>
-		<h2>Interests</h2>
-		<p>Work-in-progress</p>
-		<h2>Publications</h2>
-		<p>
-      This is an up-to-date list of the research papers that are still in preparation. For a list of submitted (preprints) and published papers 
-			along with metadata, check out my <a href="https://scholar.google.com/citations?user=9qYcZEQAAAAJ&hl=en">Google Scholar page</a>.
-			Note that I now organise reproducible versions of my research as <a href="https://github.com/hrkz/">GitHub repositories</a>.
+<Page page="Research" , site="Simulating Nature">
+  <section>
+    <h2>Interests</h2>
+    <p>Work-in-progress</p>
+    <h2>Publications</h2>
+    <p>
+      This is an up-to-date list of the research papers that are still in
+      preparation. For a list of submitted (preprints) and published papers
+      along with metadata, check out my <a
+        href="https://scholar.google.com/citations?user=9qYcZEQAAAAJ&hl=en"
+        >Google Scholar page</a
+      >. Note that I now organise reproducible versions of my research as <a
+        href="https://github.com/hrkz/">GitHub repositories</a
+      >.
     </p>
-		<ul class="pub-list">
+    <ul class="pub-list">
       <li>
         M. K. Sharma, T. Frasson, <u>H. Frezat</u>, N. Schaeffer and F. Plunian.
-        <b>Inferring sub-grid scale fluxes in spherical dynamo simulations using neural networks.</b>
+        <b
+          >Inferring sub-grid scale fluxes in spherical dynamo simulations using
+          neural networks.</b
+        >
       </li>
     </ul>
-	</section>
+  </section>
 </Page>
 
 <style>
-	.pub-list {
-		list-style-position: inside;
-		list-style-type: disc;
-	}
+  .pub-list {
+    list-style-position: inside;
+    list-style-type: disc;
+  }
 </style>

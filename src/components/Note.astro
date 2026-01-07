@@ -1,38 +1,38 @@
 ---
-import Page from '../components/Page.astro';
-import '../style/typo.scss';
+import Page from "../components/Page.astro";
+import "../style/typo.scss";
 
 const { frontmatter } = Astro.props;
 ---
 
-<Page
-  page={frontmatter.title},
-  site="Simulating Nature"
->
-	<section>
-		<div class="frontmatter">
-			<h2><b>{frontmatter.title}</b></h2>
-			<div>
-				<label><i>{frontmatter.pubDate.toDateString()}</i> · {frontmatter.tags.join(' | ')}</label>
-			</div>
-			<div>
-				<label>by <a href="#">{frontmatter.author}</a></label>
-			</div>
-		</div>
-		<hr />
-		<article class="md-content">
-			<slot />
-		</article>
-	</section>
+<Page page={frontmatter.title} , site="Simulating Nature">
+  <section>
+    <div class="frontmatter">
+      <h2><b>{frontmatter.title}</b></h2>
+      <div>
+        <label
+          ><i>{frontmatter.pubDate.toDateString()}</i> · {
+            frontmatter.tags.join(" | ")
+          }</label
+        >
+      </div>
+      <div>
+        <label>by <a href="#">{frontmatter.author}</a></label>
+      </div>
+    </div>
+    <hr />
+    <article class="md-content">
+      <slot />
+    </article>
+  </section>
 </Page>
 
 <style>
-	:global(header) {
-		position: absolute;
-	}
+  :global(header) {
+    position: absolute;
+  }
 
-	/* frontmatter */
-	.frontmatter {
-		margin-block: 1em;
-	}
+  .frontmatter {
+    margin-block: 1em;
+  }
 </style>

@@ -1,29 +1,41 @@
 ---
-import Page from '../components/Page.astro';
+import Page from "../components/Page.astro";
 ---
 
-<Page
-	page="About",
-	site="Simulating Nature"
->
+<Page page="About" , site="Simulating Nature">
   <section>
     <img class="photo" src="https://placehold.co/400x300/png" alt="" />
     <p>
-      The main goal here is to collect, synthesize, and preserve various useful or intriguing discoveries I encounter in my daily life. 
-      While my main focus lies in the numerical simulation of physical processes, I also explore computer algebra/proof systems.
+      The main goal here is to collect, synthesize, and preserve various useful
+      or intriguing discoveries I encounter in my daily life. While my main
+      focus lies in the numerical simulation of physical processes, I also
+      explore computer algebra/proof systems.
     </p>
     <p>
-      A secondary objective is to foster interactive discussions on social media —most likely on Bluesky— where insights can be shared, 
-      refined, and expanded to a wider audience.
+      A secondary objective is to foster interactive discussions on social media
+      —most likely on Bluesky— where insights can be shared, refined, and
+      expanded to a wider audience.
     </p>
     <p>
-      I am also a strong advocate of reproducible research and believe in accessible scientific data and methodologies.
-      It would probably be interesting to share step-by-step notes that allow reproducing results from my research.
+      I am also a strong advocate of reproducible research and believe in
+      accessible scientific data and methodologies. It would probably be
+      interesting to share step-by-step notes that allow reproducing results
+      from my research.
     </p>
     <h2>Academic position</h2>
     <p>
-      I am currently a postdoctoral researcher in the <a href="https://meom-group.github.io/">MEOM</a> team at <a href="https://www.ige-grenoble.fr/">Institut des Géosciences de l'Environnement (IGE)</a>, 
-      Grenoble, France. I am working on new numerical schemes for global ocean circulation models using machine learning.
+      I am currently a postdoctoral researcher in the <a
+        href="https://meom-group.github.io/">MEOM</a
+      > team at <a href="https://www.ige-grenoble.fr/"
+        >Institut des Géosciences de l'Environnement (IGE)</a
+      >, Grenoble, France. I am working on new numerical schemes for global
+      ocean circulation models using machine learning.
     </p>
   </section>
 </Page>
+
+<style>
+  .photo {
+    max-width: 100%;
+  }
+</style>

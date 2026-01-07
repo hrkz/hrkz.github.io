@@ -1,184 +1,191 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
 
 :root {
-	--font: 'Google Sans', ui-sans-serif, sans-serif;
-	--font-mono: ui-monospace, monospace;
+  --font: "Google Sans", ui-sans-serif, sans-serif;
+  --font-mono: ui-monospace, monospace;
 
-	/* text */
-	--text-size-hero: 6rem;
-	--text-size-head: 2.5rem;
-	--text-size-title: 1.375rem;
-	--text-size-label: 0.875rem;
-	--text-size-body: 1rem;
-	--text-size-code: var(--text-size-body);
+  /* text */
+  --text-size-hero: 3rem;
+  --text-size-head: 2.25rem;
+  --text-size-title: 1.69rem;
+  --text-size-subtitle: 1.27rem;
+  --text-size-body: 1rem;
+  --text-size-label: 0.75rem;
+  --text-size-code: var(--text-size-body);
 
-	--text-weight-title: 430;
-	--text-weight-body: 400;
+  --text-weight-title: 700;
+  --text-weight-body: 400;
 
-	--line-height-title: 1.1;
-	--line-height-body: 1.5;
+  --line-height-title: 1.4;
+  --line-height-body: 1.6;
 
-	/* layout */
-	--base-size: 6rem;
+  /* layout */
+  --base-size: 4.5rem;
 
-	@media screen and (max-width: 1024px) {
-		--text-size-hero: 4.5rem;
-		--text-size-head: 1.875rem;
-		--text-size-title: 1rem;
-		--text-size-label: 0.75rem;
-		--text-size-body: 0.875rem;
+  @media screen and (max-width: 1024px) {
+    --text-size-hero: 2.625rem;
+    --text-size-head: 1.97rem;
+    --text-size-title: 1.48rem;
+    --text-size-subtitle: 1.11rem;
+    --text-size-body: 1rem;
+    --text-size-label: 0.75rem;
+  }
 
-		--base-size: 4.5rem;
-	}
+  @media screen and (max-width: 768px) {
+    --text-size-hero: 2.25rem;
+    --text-size-head: 1.69rem;
+    --text-size-title: 1.27rem;
+    --text-size-subtitle: 0.95rem;
+    --text-size-label: 0.625rem;
+    --text-size-body: 0.875rem;
 
-	@media screen and (max-width: 768px) {
-		--text-size-hero: 3.75rem;
-		--text-size-head: 1.45rem;
-		--text-size-title: 0.875rem;
-		--text-size-label: 0.625rem;
-		--text-size-body: 0.75rem;
+    --base-size: 3.5rem;
+  }
 
-		--base-size: 3rem;
-	}
+  /* theming */
+  @media (prefers-color-scheme: light) {
+    --color-background: #fff;
+    --color-surface: #f2f2f2;
+    --color-text: #000;
+    --color-text-alt: #616161;
+    --color-primary: #0067b8;
+  }
 
-	/* theming */
-	@media (prefers-color-scheme: light) {
-		--color-surface: #fff;
-		--color-text: #1f1f1f;
-		--color-hover: #f8f9fa;
-		--color-inactive: #6d7177;
-		--color-accent: #1a73e8;
-		--color-focus: #1252a5;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		--color-surface: #141314;
-		--color-text: #e6e1e3;
-		--color-hover: #262426;
-		--color-inactive: #a69fa7;
-		--color-accent: #1a73e8;
-		--color-focus: #1252a5;
-	}
+  @media (prefers-color-scheme: dark) {
+    --color-background: #1e2223;
+    --color-surface: #272b2d;
+    --color-text: #e7e6e3;
+    --color-text-alt: #aaa398;
+    --color-primary: #5dbaff;
+  }
 }
 
 /* layout */
 html,
 body {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font: inherit;
-	font-size: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
 }
 
 body {
-	font-family: var(--font);
-	font-size: var(--text-size-body);
-	font-weight: var(--text-weight-body);
-	line-height: var(--line-height-body);
-	color: var(--color-text);
-	background-color: var(--color-surface);
+  font-family: var(--font);
+  font-size: var(--text-size-body);
+  font-weight: var(--text-weight-body);
+  line-height: var(--line-height-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 /* main frame */
 .frame {
-	display: flex;
-	flex-direction: column;
-	min-height: 100svh;
-	padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding-top: 64px;
 }
 
 section {
-	width: 832px;
-	max-width: calc(100% - 0.5 * var(--base-size));
-	margin: calc(0.3 * var(--base-size)) auto;
+  width: 832px;
+  max-width: calc(100% - 0.5 * var(--base-size));
+  margin: calc(0.3 * var(--base-size)) auto;
 }
 
-p, span {
-	font-size: var(--text-size-body);
+p,
+span {
+  font-size: var(--text-size-body);
 }
 
 /* headings */
-h1, h2, h3, h4, h5, h6 {
-	font-weight: var(--text-weight-title);
-	line-height: var(--line-height-title);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--text-weight-title);
+  line-height: var(--line-height-title);
 }
 
 h1 {
-	font-size: var(--text-size-hero);
+  font-size: var(--text-size-hero);
 }
 h2 {
-	font-size: var(--text-size-head);
+  font-size: var(--text-size-head);
 }
 h3 {
-	font-size: var(--text-size-title);
+  font-size: var(--text-size-title);
 }
 
-h4 { 
-	font-size: calc(var(--text-size-title) * 0.90); 
+h4 {
+  font-size: var(--text-size-subtitle);
 }
-h5 { 
-	font-size: calc(var(--text-size-title) * 0.8); 
+h5 {
+  font-size: calc(var(--text-size-subtitle) / 1.333);
 }
-h6 { 
-	font-size: calc(var(--text-size-title) * 0.7); 
+h6 {
+  font-size: calc(var(--text-size-subtitle) / 1.333 / 1.333);
 }
-label, figcaption {
-	font-size: var(--text-size-label);
+label,
+figcaption {
+  font-size: var(--text-size-label);
 }
 
 /* text */
-b, strong {
-	font-weight: 600;
+b,
+strong {
+  font-weight: 600;
 }
 
 em {
-	font-style: italic;
+  font-style: italic;
 }
 
 a,
 button,
 input {
-	padding-block: 1px;
-	font-weight: 450;
-	color: var(--color-accent);
-	border-radius: 4px;
-	text-decoration: none;
-	cursor: pointer;
+  padding-block: 1px;
+  font-weight: 450;
+  color: var(--color-primary);
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
 
-	&:hover {
-		color: var(--color-text);
-	}
+  &:hover {
+    color: var(--color-text);
+  }
 
-	&:focus {
-		margin: -1px;
-		border: 1px solid var(--color-accent);
-		outline: 0;
-	}
+  &:focus {
+    margin: -1px;
+    border: 1px solid var(--color-primary);
+    outline: 0;
+  }
 
-	&:hover:focus {
-		border: 1px solid var(--color-text);
-	}
+  &:hover:focus {
+    border: 1px solid var(--color-text);
+  }
 }
 
 hr {
-	color: rgb(from var(--color-inactive) r g b / .3);
+  color: rgb(from var(--color-text-alt) r g b / 0.3);
 }
 
 p {
-	margin-block: 1em;
+  margin-block: 1em;
 }
 
 code {
-	font-size: var(--text-size-code);
-	padding-inline: 2px;
-	border-radius: 2px;
+  font-size: var(--text-size-code);
+  padding-inline: 2px;
+  border-radius: 2px;
 }
 
 /* recurring components */
 .logo {
-	width: 40px;
-	height: 40px;
-	border-radius: calc(infinity * 1px);
-	margin-right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: calc(infinity * 1px);
+  margin-right: 24px;
 }
