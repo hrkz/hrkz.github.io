@@ -48,13 +48,13 @@ const notes = sortByDate(await getCollection("notes"));
         <div class="card">
           <img src="https://placehold.co/400x300/png" class="card-image" />
           <div class="card-content">
-            <a href="/projects#[name]"><h3>[Name]</h3></a>
+            <a href="/projects#[name]" class="project-link"><h4>[name]</h4></a>
             <p>
-              Differentiable FV solver for layered and primitive equations
-              (focused ocean) using JAX.
+              Differentiable stacked shallow-water solver for (global) ocean
+              dynamics.
             </p>
-            <a href="#">
-              <span>Project page</span>
+            <a href="#" class="project-src">
+              <span>Source</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
@@ -72,13 +72,10 @@ const notes = sortByDate(await getCollection("notes"));
         <div class="card">
           <img src="https://placehold.co/400x300/png" class="card-image" />
           <div class="card-content">
-            <a href="/projects#given"><h3>Given</h3></a>
-            <p>
-              Symbolic manipulation and theorem proving using equivalence graphs
-              in Rust.
-            </p>
-            <a href="#">
-              <span>Project page</span>
+            <a href="/projects#given" class="project-link"><h4>Given</h4></a>
+            <p>Symbolic AST manipulation using equivalence graph rewriting.</p>
+            <a href="#" class="project-src">
+              <span>Source</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
@@ -96,13 +93,13 @@ const notes = sortByDate(await getCollection("notes"));
         <div class="card">
           <img src="https://placehold.co/400x300/png" class="card-image" />
           <div class="card-content">
-            <a href="/projects#vario"><h3>Vario</h3></a>
+            <a href="/projects#vario" class="project-link"><h4>Vario</h4></a>
             <p>
-              High-order DG solver for conservation laws running with SPIR-V
-              (GPU) acceleration.
+              High-order DG solver for conservation laws with SPIR-V
+              acceleration.
             </p>
-            <a href="#">
-              <span>Project page</span>
+            <a href="#" class="project-src">
+              <span>Source</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="24px"
@@ -226,7 +223,7 @@ const notes = sortByDate(await getCollection("notes"));
     gap: calc(0.25 * var(--base-size));
 
     .card {
-      height: calc(5 * var(--base-size));
+      min-height: 420px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -243,8 +240,7 @@ const notes = sortByDate(await getCollection("notes"));
       }
 
       .card-image {
-        width: calc(100%);
-        height: calc(2 * var(--base-size));
+        aspect-ratio: 16/9;
         object-fit: cover;
         border-radius: 8px 8px 0 0;
       }
@@ -253,8 +249,21 @@ const notes = sortByDate(await getCollection("notes"));
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        padding: calc(0.1 * var(--base-size));
+        justify-content: space-between;
+        padding: calc(0.4 * var(--base-size));
+
+        .project-link {
+          font-size: 0.875rem;
+          text-transform: uppercase;
+          text-overflow: ellipsis;
+          font-weight: 500;
+        }
+
+        .project-src {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
       }
     }
   }
