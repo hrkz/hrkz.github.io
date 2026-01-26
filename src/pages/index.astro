@@ -48,7 +48,7 @@ const notes = sortByDate(await getCollection("notes"));
         <div class="card">
           <img src="https://placehold.co/400x300/png" class="card-image" />
           <div class="card-content">
-            <a href="/projects#[name]" class="project-link"><h4>[name]</h4></a>
+            <a href="/projects#[name]" class="project-link"><h3>[name]</h3></a>
             <p>
               Differentiable stacked shallow-water solver for (global) ocean
               dynamics.
@@ -72,7 +72,7 @@ const notes = sortByDate(await getCollection("notes"));
         <div class="card">
           <img src="https://placehold.co/400x300/png" class="card-image" />
           <div class="card-content">
-            <a href="/projects#given" class="project-link"><h4>Given</h4></a>
+            <a href="/projects#given" class="project-link"><h3>Given</h3></a>
             <p>Symbolic AST manipulation using equivalence graph rewriting.</p>
             <a href="#" class="project-src">
               <span>Source</span>
@@ -93,7 +93,7 @@ const notes = sortByDate(await getCollection("notes"));
         <div class="card">
           <img src="https://placehold.co/400x300/png" class="card-image" />
           <div class="card-content">
-            <a href="/projects#vario" class="project-link"><h4>Vario</h4></a>
+            <a href="/projects#vario" class="project-link"><h3>Vario</h3></a>
             <p>
               High-order DG solver for conservation laws with SPIR-V
               acceleration.
@@ -253,7 +253,6 @@ const notes = sortByDate(await getCollection("notes"));
         padding: calc(0.4 * var(--base-size));
 
         .project-link {
-          font-size: 0.875rem;
           text-transform: uppercase;
           text-overflow: ellipsis;
           font-weight: 500;

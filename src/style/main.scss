@@ -89,7 +89,7 @@ body {
 
 section {
   width: 832px;
-  max-width: calc(100% - 0.5 * var(--base-size));
+  max-width: calc(100% - var(--base-size));
   margin: calc(0.3 * var(--base-size)) auto;
 }
 
@@ -188,4 +188,5 @@ code {
   height: 40px;
   border-radius: calc(infinity * 1px);
   margin-right: 24px;
+  z-index: 110;
 }

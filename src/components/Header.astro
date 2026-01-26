@@ -66,22 +66,7 @@ const { page } = Astro.props;
   </div>
 
   <aside class="rail">
-    <a href="/" class=`${page === 'hrkz' ? 'active-page' : ''}`>
-      <label class="menu-btn">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 -960 960 960"
-          width="24px"
-          fill="currentColor"
-        >
-          <path
-            d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"
-          ></path>
-        </svg>
-      </label>
-      <span>Home</span>
-    </a>
+    <hr />
     <a href="/about/" class=`${page === 'About' ? 'active-page' : ''}`>
       <label class="menu-btn">
         <svg
@@ -188,12 +173,13 @@ const { page } = Astro.props;
     a {
       display: flex;
       padding-block: 8px;
-      font-size: 0.75rem;
+      font-size: 1rem;
       color: var(--color-text-alt);
     }
 
     .title {
       font-size: 1.25rem;
+      z-index: 110;
     }
 
     .active-page {
@@ -242,6 +228,10 @@ const { page } = Astro.props;
       transition: transform 0.3s ease;
       z-index: 100;
 
+      hr {
+        padding-bottom: 24px;
+      }
+
       a:hover,
       .active-page {
         background-color: var(--color-surface);
@@ -249,12 +239,13 @@ const { page } = Astro.props;
 
       a {
         align-items: center;
-        padding-inline: 16px;
+        padding-inline: 32px;
+        padding-block: 16px;
         border-start-end-radius: 100px;
         border-end-end-radius: 100px;
 
         span {
-          font-size: 0.75rem;
+          font-size: 1rem;
         }
       }
     }
@@ -267,6 +258,10 @@ const { page } = Astro.props;
     #rail-btn:checked ~ .overlay {
       opacity: 0.5;
       pointer-events: auto;
+    }
+
+    #rail-btn:checked ~ .open-btn {
+      display: none;
     }
 
     #rail-btn:checked ~ .close-btn {
