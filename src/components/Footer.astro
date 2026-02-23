@@ -4,8 +4,38 @@ const date = new Date();
 
 <footer>
   <section>
+    <nav class="menu">
+      <div>
+        <span class="category">Resources</span>
+        <ul>
+          <li><a href="https://astro.build/">Astro</a></li>
+          <li><a href=""></a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="category">Academic</span>
+        <ul>
+          <li>
+            <a href="https://maps.app.goo.gl/k2V9gnDuNkfpKMV98">Find me</a>
+          </li>
+          <li>
+            <a href="mailto:hugo.frezat@univ-grenoble-alpes.fr">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <span class="category">Personal</span>
+        <ul>
+          <li>
+            <a href="https://www.thecrag.com/ascents/by/hugofrezat/"
+              >Climbing logbook</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <hr />
     <div class="socials">
-      <span>Socials</span>
       <a href="https://scholar.google.com/citations?user=9qYcZEQAAAAJ&hl=en">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -75,28 +105,43 @@ const date = new Date();
         </svg>
       </a>
     </div>
-    <hr />
-    <div class="locate">
-      <img class="logo" src="/assets/avatar.jpg" alt="" />
-      <a href="https://maps.app.goo.gl/k2V9gnDuNkfpKMV98">Find me</a>
-      <a href="mailto:hugo.frezat@univ-grenoble-alpes.fr">Contact</a>
-      <span><i>Last update {date.toLocaleDateString()}</i></span>
-    </div>
+    <span>
+      <a href="https://creativecommons.org/licenses/by/4.0/">© 2026</a> Hugo Frezat,
+      <i>last update {date.toLocaleDateString()}</i></span
+    >
   </section>
 </footer>
 
 <style>
   footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
     margin-top: auto;
     padding-block: 36px;
     background-color: var(--color-surface);
 
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-bottom: 24px;
+
+      .category {
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      ul {
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+
     a {
-      margin-right: 32px;
       color: var(--color-text-alt);
 
       &:hover {
@@ -107,21 +152,9 @@ const date = new Date();
     .socials {
       display: flex;
       flex-direction: row;
-      align-items: center;
+      gap: 12px;
       width: 100%;
-      margin-bottom: 24px;
-
-      span {
-        margin-right: 32px;
-        font-weight: 500;
-      }
-    }
-
-    .locate {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 24px;
+      margin-block: 24px 6px;
     }
   }
 </style>

@@ -26,6 +26,12 @@ const notes = sortByDate(await getCollection("notes"));
         across in my research, ranging from theorems and numerical simulations
         to physics phenomena or computer science stuff.
       </span>
+      <h3>Information</h3>
+      <span>
+        ⚠️ This website has been built from scratch but some sections are still
+        missing. I am working on filling the gaps and this will lead to some
+        updates soon.
+      </span>
     </section>
   </div>
 
@@ -168,6 +174,7 @@ const notes = sortByDate(await getCollection("notes"));
         </svg>
         <span>Outreach</span>
       </div>
+      In progress...
     </section>
   </div>
 
@@ -187,11 +194,18 @@ const notes = sortByDate(await getCollection("notes"));
         </svg>
         <span>CV</span>
       </div>
+      In progress...
     </section>
   </div>
 </Page>
 
 <style>
+  .banner {
+    max-height: 300px;
+    object-fit: cover;
+    border-bottom: 4px solid var(--color-text);
+  }
+
   .full-page:nth-child(even) {
     background-color: var(--color-surface);
   }

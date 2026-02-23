@@ -66,9 +66,15 @@
   svg,
   iframe,
   figure {
+    display: table;
     max-width: 100%;
     height: auto;
     margin: auto;
+  }
+
+  figcaption {
+    display: table-caption;
+    caption-side: bottom;
   }
 
   /* table */
