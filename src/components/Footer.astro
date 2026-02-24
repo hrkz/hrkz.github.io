@@ -3,39 +3,46 @@ const date = new Date();
 ---
 
 <footer>
-  <section>
-    <nav class="menu">
+  <div class="container">
+    <nav class="nav-block">
       <div>
-        <span class="category">Resources</span>
-        <ul>
-          <li><a href="https://astro.build/">Astro</a></li>
-          <li><a href=""></a></li>
+        <span class="nav-block__category">Resources</span>
+        <ul class="nav-block__list">
+          <li><a href="https://astro.build/" class="footer__link">Astro</a></li>
+          <li><a href="" class="footer__link"></a></li>
         </ul>
       </div>
       <div>
-        <span class="category">Academic</span>
-        <ul>
+        <span class="nav-block__category">Academic</span>
+        <ul class="nav-block__list">
           <li>
-            <a href="https://maps.app.goo.gl/k2V9gnDuNkfpKMV98">Find me</a>
+            <a
+              href="https://maps.app.goo.gl/k2V9gnDuNkfpKMV98"
+              class="footer__link">Find me</a
+            >
           </li>
           <li>
-            <a href="mailto:hugo.frezat@univ-grenoble-alpes.fr">Contact</a>
+            <a
+              href="mailto:hugo.frezat@univ-grenoble-alpes.fr"
+              class="footer__link">Contact</a
+            >
           </li>
         </ul>
       </div>
       <div>
-        <span class="category">Personal</span>
-        <ul>
+        <span class="nav-block__category">Personal</span>
+        <ul class="nav-block__list">
           <li>
-            <a href="https://www.thecrag.com/ascents/by/hugofrezat/"
-              >Climbing logbook</a
+            <a
+              href="https://www.thecrag.com/ascents/by/hugofrezat/"
+              class="footer__link">Climbing logbook</a
             >
           </li>
         </ul>
       </div>
     </nav>
     <hr />
-    <div class="socials">
+    <div class="socials-list">
       <a href="https://scholar.google.com/citations?user=9qYcZEQAAAAJ&hl=en">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -106,10 +113,13 @@ const date = new Date();
       </a>
     </div>
     <span>
-      <a href="https://creativecommons.org/licenses/by/4.0/">© 2026</a> Hugo Frezat,
+      <a
+        href="https://creativecommons.org/licenses/by/4.0/"
+        class="footer__link">© 2026</a
+      > Hugo Frezat,
       <i>last update {date.toLocaleDateString()}</i></span
     >
-  </section>
+  </div>
 </footer>
 
 <style>
@@ -118,30 +128,30 @@ const date = new Date();
     padding-block: 36px;
     background-color: var(--color-surface);
 
-    .menu {
+    .nav-block {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       margin-bottom: 24px;
 
-      .category {
+      .nav-block__category {
         font-weight: 500;
         text-transform: uppercase;
       }
 
-      ul {
+      .nav-block__list {
         margin-top: 12px;
       }
     }
 
     @media (max-width: 768px) {
-      .menu {
+      .nav-block {
         display: flex;
         flex-direction: column;
         gap: 24px;
       }
     }
 
-    a {
+    .footer__link {
       color: var(--color-text-alt);
 
       &:hover {
@@ -149,7 +159,7 @@ const date = new Date();
       }
     }
 
-    .socials {
+    .socials-list {
       display: flex;
       flex-direction: row;
       gap: 12px;

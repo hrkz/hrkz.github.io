@@ -5,8 +5,8 @@ const { page } = Astro.props;
 ---
 
 <header>
-  <input type="checkbox" id="rail-btn" />
-  <label for="rail-btn" class="menu-icon menu-btn close-btn">
+  <input type="checkbox" id="rail__btn" />
+  <label for="rail__btn" class="header__icon header__btn header__btn--close">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="24px"
@@ -18,7 +18,7 @@ const { page } = Astro.props;
       ></path>
     </svg>
   </label>
-  <label for="rail-btn" class="menu-icon menu-btn open-btn">
+  <label for="rail__btn" class="header__icon header__btn header__btn--open">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="24px"
@@ -30,23 +30,35 @@ const { page } = Astro.props;
       ></path>
     </svg>
   </label>
-  <img class="logo" src="/assets/avatar.jpg" alt="" />
-  <a href="/"><span class="title">Sim. Nat.</span></a>
-  <nav class="menu">
-    <a href="/about/" class=`${page === 'About' ? 'active-page' : ''}`>About</a>
-    <a href="/research/" class=`${page === 'Research' ? 'active-page' : ''}`
+  <img class="header__logo" src="/assets/avatar.jpg" alt="" />
+  <a href="/" class="header__link"
+    ><span class="header__title">Sim. Nat.</span></a
+  >
+  <nav class="nav-bar">
+    <a
+      href="/about/"
+      class=`header__link ${page === 'About' ? 'active-page' : ''}`>About</a
+    >
+    <a
+      href="/research/"
+      class=`header__link ${page === 'Research' ? 'active-page' : ''}`
       >Research</a
     >
-    <a href="/projects/" class=`${page === 'Projects' ? 'active-page' : ''}`
+    <a
+      href="/projects/"
+      class=`header__link ${page === 'Projects' ? 'active-page' : ''}`
       >Projects</a
     >
-    <a href="/notes/" class=`${page === 'Notes' ? 'active-page' : ''}`>Notes</a>
+    <a
+      href="/notes/"
+      class=`header__link ${page === 'Notes' ? 'active-page' : ''}`>Notes</a
+    >
   </nav>
 
-  <div class="actions">
+  <div class="header__actions">
     <Search />
     <a
-      class="menu-icon"
+      class="header__icon"
       target="_blank"
       href="/rss.xml"
       aria-label="RSS feed"
@@ -65,10 +77,13 @@ const { page } = Astro.props;
     </a>
   </div>
 
-  <aside class="rail">
+  <aside class="nav-rail">
     <hr />
-    <a href="/about/" class=`${page === 'About' ? 'active-page' : ''}`>
-      <label class="menu-btn">
+    <a
+      href="/about/"
+      class=`header__link ${page === 'About' ? 'active-page' : ''}`
+    >
+      <label class="header__btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -81,10 +96,13 @@ const { page } = Astro.props;
           ></path>
         </svg>
       </label>
-      <span>About</span>
+      <span class="nav-rail__item">About</span>
     </a>
-    <a href="/research/" class=`${page === 'Research' ? 'active-page' : ''}`>
-      <label class="menu-btn">
+    <a
+      href="/research/"
+      class=`header__link ${page === 'Research' ? 'active-page' : ''}`
+    >
+      <label class="header__btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -97,10 +115,13 @@ const { page } = Astro.props;
           ></path>
         </svg>
       </label>
-      <span>Research</span>
+      <span class="nav-rail__item">Research</span>
     </a>
-    <a href="/projects/" class=`${page === 'Projects' ? 'active-page' : ''}`>
-      <label class="menu-btn">
+    <a
+      href="/projects/"
+      class=`header__link ${page === 'Projects' ? 'active-page' : ''}`
+    >
+      <label class="header__btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -113,10 +134,13 @@ const { page } = Astro.props;
           ></path>
         </svg>
       </label>
-      <span>Projects</span>
+      <span class="nav-rail__item">Projects</span>
     </a>
-    <a href="/notes/" class=`${page === 'Notes' ? 'active-page' : ''}`>
-      <label class="menu-btn">
+    <a
+      href="/notes/"
+      class=`header__link ${page === 'Notes' ? 'active-page' : ''}`
+    >
+      <label class="header__btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
@@ -129,10 +153,10 @@ const { page } = Astro.props;
           ></path>
         </svg>
       </label>
-      <span>Notes</span>
+      <span class="nav-rail__item">Notes</span>
     </a>
   </aside>
-  <label for="rail-btn" class="overlay"></label>
+  <label for="rail__btn" class="overlay"></label>
 </header>
 
 <style>
@@ -155,7 +179,7 @@ const { page } = Astro.props;
       display: none;
     }
 
-    .menu-icon {
+    .header__icon {
       cursor: pointer;
       align-items: center;
       fill: var(--color-text-alt);
@@ -165,19 +189,31 @@ const { page } = Astro.props;
       }
     }
 
-    .menu-btn {
+    .header__btn {
       display: none;
       margin-right: 24px;
     }
 
-    a {
+    .header__link {
       display: flex;
       padding-block: 8px;
       font-size: 1rem;
       color: var(--color-text-alt);
+
+      &:hover {
+        color: var(--color-text);
+      }
     }
 
-    .title {
+    .header__logo {
+      width: 40px;
+      height: 40px;
+      border-radius: calc(infinity * 1px);
+      margin-right: 24px;
+      z-index: 110;
+    }
+
+    .header__title {
       font-size: 1.25rem;
       z-index: 110;
     }
@@ -186,8 +222,8 @@ const { page } = Astro.props;
       color: var(--color-text);
     }
 
-    /* menu bar (desktop) */
-    .menu {
+    /* nav bar (desktop) */
+    .nav-bar {
       display: flex;
       align-items: end;
       margin-left: 50px;
@@ -196,7 +232,7 @@ const { page } = Astro.props;
         border-bottom: 2px solid var(--color-primary);
       }
 
-      a {
+      .header__link {
         margin-top: 5px;
         padding-inline: 24px;
 
@@ -206,15 +242,15 @@ const { page } = Astro.props;
       }
     }
 
-    .actions {
+    .header__actions {
       display: flex;
       align-items: center;
       gap: 24px;
       margin-left: auto;
     }
 
-    /* rail menu (tablet and mobile) */
-    .rail {
+    /* rail nav (tablet and mobile) */
+    .nav-rail {
       position: fixed;
       top: 0;
       left: 0;
@@ -232,39 +268,39 @@ const { page } = Astro.props;
         padding-bottom: 24px;
       }
 
-      a:hover,
+      .header__link:hover,
       .active-page {
         background-color: var(--color-surface);
       }
 
-      a {
+      .header__link {
         align-items: center;
         padding-inline: 32px;
         padding-block: 16px;
         border-start-end-radius: 100px;
         border-end-end-radius: 100px;
 
-        span {
+        .nav-rail__item {
           font-size: 1rem;
         }
       }
     }
 
     /* opened rail */
-    #rail-btn:checked ~ .rail {
+    #rail__btn:checked ~ .nav-rail {
       transform: translateX(0);
     }
 
-    #rail-btn:checked ~ .overlay {
+    #rail__btn:checked ~ .overlay {
       opacity: 0.5;
       pointer-events: auto;
     }
 
-    #rail-btn:checked ~ .open-btn {
+    #rail__btn:checked ~ .header__btn--open {
       display: none;
     }
 
-    #rail-btn:checked ~ .close-btn {
+    #rail__btn:checked ~ .header__btn--close {
       display: flex;
       z-index: 110;
     }
@@ -280,12 +316,12 @@ const { page } = Astro.props;
     }
 
     @media (max-width: 1024px) {
-      .menu-btn {
+      .header__btn {
         display: flex;
       }
 
-      .menu,
-      .close-btn {
+      .nav-bar,
+      .header__btn--close {
         display: none;
       }
     }

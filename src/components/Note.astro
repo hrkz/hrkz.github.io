@@ -6,8 +6,8 @@ const { frontmatter } = Astro.props;
 ---
 
 <Page page={frontmatter.title} , site="Simulating Nature">
-  <section>
-    <div class="frontmatter">
+  <div class="container">
+    <section class="article__frontmatter">
       <h2><b>{frontmatter.title}</b></h2>
       <div>
         <label
@@ -19,12 +19,12 @@ const { frontmatter } = Astro.props;
       <div>
         <label>by <a href="#">{frontmatter.author}</a></label>
       </div>
-    </div>
+    </section>
     <hr />
-    <article class="md-content">
+    <article class="article__content">
       <slot />
     </article>
-  </section>
+  </div>
 </Page>
 
 <style>
@@ -32,7 +32,7 @@ const { frontmatter } = Astro.props;
     position: absolute;
   }
 
-  .frontmatter {
+  .article__frontmatter {
     margin-block: 1em;
   }
 </style>

@@ -17,7 +17,7 @@ const { page } = Astro.props;
 ---
 
 <Page page="Notes" , site="Simulating Nature">
-  <section>
+  <div class="container">
     <span>
       Updates on my research and practical projects, discussion of open
       problems, and other maths/physics/ml-related topics.
@@ -36,7 +36,7 @@ const { page } = Astro.props;
         <div class="pagination">
           <a
             href={page.url.prev as string}
-            class={`${page.url.prev ? "" : "endpoint"}`}
+            class={`${page.url.prev ? "" : "pagination__link--disabled"}`}
             aria-label="Previous"
           >
             <svg
@@ -54,7 +54,7 @@ const { page } = Astro.props;
           </span>
           <a
             href={page.url.next as string}
-            class={`${page.url.next ? "" : "endpoint"}`}
+            class={`${page.url.next ? "" : "pagination__link--disabled"}`}
             aria-label="Next"
           >
             <svg
@@ -70,7 +70,7 @@ const { page } = Astro.props;
         </div>
       )
     }
-  </section>
+  </div>
 </Page>
 
 <style>
@@ -80,11 +80,11 @@ const { page } = Astro.props;
     align-items: center;
     gap: 10px;
     margin-top: 8px;
-  }
 
-  .endpoint {
-    pointer-events: none;
-    user-select: none;
-    opacity: 0.4;
+    .pagination__link--disabled {
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.4;
+    }
   }
 </style>

@@ -80,14 +80,14 @@ body {
 }
 
 /* main frame */
-.frame {
+.layout {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
   padding-top: 64px;
 }
 
-section {
+.container {
   width: 832px;
   max-width: calc(100% - var(--base-size));
   margin: calc(0.3 * var(--base-size)) auto;
@@ -112,9 +112,11 @@ h6 {
 h1 {
   font-size: var(--text-size-hero);
 }
+
 h2 {
   font-size: var(--text-size-head);
 }
+
 h3 {
   font-size: var(--text-size-title);
 }
@@ -122,12 +124,15 @@ h3 {
 h4 {
   font-size: var(--text-size-subtitle);
 }
+
 h5 {
   font-size: calc(var(--text-size-subtitle) / 1.333);
 }
+
 h6 {
   font-size: calc(var(--text-size-subtitle) / 1.333 / 1.333);
 }
+
 label,
 figcaption {
   font-size: var(--text-size-label);
@@ -183,10 +188,3 @@ code {
 }
 
 /* recurring components */
-.logo {
-  width: 40px;
-  height: 40px;
-  border-radius: calc(infinity * 1px);
-  margin-right: 24px;
-  z-index: 110;
-}
