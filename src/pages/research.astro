@@ -8,21 +8,32 @@ import Page from "../components/Page.astro";
     <p>Work-in-progress</p>
     <h2>Publications</h2>
     <p>
-      This is an up-to-date list of the research papers that are still in
-      preparation. For a list of submitted (preprints) and published papers
-      along with metadata, check out my <a
+      Check out my <a
         href="https://scholar.google.com/citations?user=9qYcZEQAAAAJ&hl=en"
         >Google Scholar page</a
-      >. Note that I now organise reproducible versions of my research as <a
-        href="https://github.com/hrkz/">GitHub repositories</a
-      >.
+      > for a list of submitted (preprints) and published papers along with metadata
+      and my <a href="https://github.com/hrkz?tab=repositories"
+        >GitHub repositories</a
+      > for associated reproducible code and data.
     </p>
+    <h4>In preparation / submitted</h4>
     <ul class="publication-list">
       <li>
-        M. K. Sharma, T. Frasson, <u>H. Frezat</u>, N. Schaeffer and F. Plunian.
+        C. Durand, D. Botvynko, <u>H. Frezat</u>, D. Grande, A. Storto, D.S.
+        Greenberg, R. Fablet, S. Ouala and J. Le Sommer.
         <b
-          >Inferring sub-grid scale fluxes in spherical dynamo simulations using
-          neural networks.</b
+          >Learning-Based Methods and the Future of Numerical Ocean and Sea Ice
+          Modeling.</b
+        > Submitted to the <i>Annual Review of Marine Science.</i>
+      </li>
+      <li>
+        S. Ouala, E. Meunier, <u>H. Frezat</u>, R. Fablet and J. Le Sommer.
+        <b
+          >Leveraging differentiable programming for ocean model design and
+          calibration.</b
+        >
+        In preparation for the <i
+          >Journal of Advances in Modeling Earth Systems.</i
         >
       </li>
     </ul>
@@ -31,7 +42,9 @@ import Page from "../components/Page.astro";
 
 <style>
   .publication-list {
-    list-style-position: inside;
-    list-style-type: disc;
+    font-size: var(--text-size-label);
+    list-style-position: outside;
+    list-style-type: decimal;
+    margin: calc(0.25 * var(--base-size));
   }
 </style>
