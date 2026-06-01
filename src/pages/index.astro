@@ -40,13 +40,13 @@ const notes = sortByDate(await getCollection("notes"));
       <div class="section__title">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 -960 960 960"
+          viewBox="0 0 24 24"
           width="24px"
+          height="24px"
           fill="currentColor"
         >
           <path
-            d="m656-120-56-56 63-64-63-63 56-57 64 64 63-64 57 57-64 63 64 64-57 56-63-63-64 63Zm-416-80q17 0 28.5-11.5T280-240q0-17-11.5-28.5T240-280q-17 0-28.5 11.5T200-240q0 17 11.5 28.5T240-200Zm0 80q-50 0-85-35t-35-85q0-50 35-85t85-35q37 0 67.5 20.5T352-284q39-11 63.5-43t24.5-73v-160q0-83 58.5-141.5T640-760h46l-63-63 57-57 160 160-160 160-57-56 63-64h-46q-50 0-85 35t-35 85v160q0 73-47 128.5T354-203q-12 37-43.5 60T240-120Zm-64-480-56-56 63-64-63-63 56-57 64 64 63-64 57 57-64 63 64 64-57 56-63-63-64 63Z"
+            d="M11 19.425v-6.85L5 9.1v6.85zm2 0l6-3.475V9.1l-6 3.475zm-1-8.575l5.925-3.425L12 4L6.075 7.425zM4 17.7q-.475-.275-.737-.725t-.263-1v-7.95q0-.55.263-1T4 6.3l7-4.025Q11.475 2 12 2t1 .275L20 6.3q.475.275.738.725t.262 1v7.95q0 .55-.262 1T20 17.7l-7 4.025Q12.525 22 12 22t-1-.275zm8-5.7"
           ></path>
         </svg>
         <span>Projects</span>
@@ -55,43 +55,19 @@ const notes = sortByDate(await getCollection("notes"));
         <div class="card">
           <img src="https://placehold.co/400x300/png" class="card__image" />
           <div class="card__content">
-            <a href="/projects#[name]" class="card__link"><h4>[name]</h4></a>
-            <p>
-              Differentiable stacked shallow-water solver for (global) ocean
-              dynamics.
-            </p>
-            <a href="#" class="card__source">
-              <span>Source</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
-                width="24px"
-                fill="currentColor"
-              >
-                <path
-                  d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="https://placehold.co/400x300/png" class="card__image" />
-          <div class="card__content">
             <a href="/projects#given" class="card__link"><h4>Given</h4></a>
-            <p>Symbolic AST manipulation using equivalence graph rewriting.</p>
-            <a href="#" class="card__source">
+            <p>Symbolic reasoning and computations with equivalence graphs.</p>
+            <a href="https://github.com/hrkz/given" class="card__source">
               <span>Source</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
+                viewBox="0 0 24 24"
                 width="24px"
+                height="24px"
                 fill="currentColor"
               >
                 <path
-                  d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"
+                  d="m9.6 15.6l1.4-1.425L8.825 12L11 9.825L9.6 8.4L6 12zm4.8 0L18 12l-3.6-3.6L13 9.825L15.175 12L13 14.175zM5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zM5 5v14z"
                 ></path>
               </svg>
             </a>
@@ -102,20 +78,40 @@ const notes = sortByDate(await getCollection("notes"));
           <div class="card__content">
             <a href="/projects#vario" class="card__link"><h4>Vario</h4></a>
             <p>
-              High-order DG solver for conservation laws with SPIR-V
-              acceleration.
+              High-order differentiable solvers for conservation laws using JAX.
             </p>
             <a href="#" class="card__source">
               <span>Source</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
+                viewBox="0 0 24 24"
                 width="24px"
+                height="24px"
                 fill="currentColor"
               >
                 <path
-                  d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"
+                  d="m9.6 15.6l1.4-1.425L8.825 12L11 9.825L9.6 8.4L6 12zm4.8 0L18 12l-3.6-3.6L13 9.825L15.175 12L13 14.175zM5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zM5 5v14z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://placehold.co/400x300/png" class="card__image" />
+          <div class="card__content">
+            <a href="/projects#lore" class="card__link"><h4>lore-lang</h4></a>
+            <p>Functional array-based language for numerical computations.</p>
+            <a href="#" class="card__source">
+              <span>Source</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24px"
+                height="24px"
+                fill="currentColor"
+              >
+                <path
+                  d="m9.6 15.6l1.4-1.425L8.825 12L11 9.825L9.6 8.4L6 12zm4.8 0L18 12l-3.6-3.6L13 9.825L15.175 12L13 14.175zM5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21zm0-2h14V5H5zM5 5v14z"
                 ></path>
               </svg>
             </a>
@@ -133,12 +129,12 @@ const notes = sortByDate(await getCollection("notes"));
             <div class="section__title">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                height="24px"
-                viewBox="0 -960 960 960"
+                viewBox="0 0 24 24"
                 width="24px"
+                height="24px"
                 fill="currentColor"
               >
-                <path d="M280-280h280v-80H280v80Zm0-160h400v-80H280v80Zm0-160h400v-80H280v80Zm-80 480q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z" />
+                <path d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h11l5 5v11q0 .825-.587 1.413T19 21zm0-2h14V9h-4V5H5zm2-2h10v-2H7zm0-8h5V7H7zm0 4h10v-2H7zM5 5v4zv14z" />
               </svg>
               <span>Recent notes</span>
             </div>
@@ -163,16 +159,16 @@ const notes = sortByDate(await getCollection("notes"));
       <div class="section__title">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 -960 960 960"
+          viewBox="0 0 24 24"
           width="24px"
+          height="24px"
           fill="currentColor"
         >
           <path
-            d="M680-80q-50 0-85-35t-35-85q0-6 3-28L282-392q-16 15-37 23.5t-45 8.5q-50 0-85-35t-35-85q0-50 35-85t85-35q24 0 45 8.5t37 23.5l281-164q-2-7-2.5-13.5T560-760q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35q-24 0-45-8.5T598-672L317-508q2 7 2.5 13.5t.5 14.5q0 8-.5 14.5T317-452l281 164q16-15 37-23.5t45-8.5q50 0 85 35t35 85q0 50-35 85t-85 35Zm0-80q17 0 28.5-11.5T720-200q0-17-11.5-28.5T680-240q-17 0-28.5 11.5T640-200q0 17 11.5 28.5T680-160ZM200-440q17 0 28.5-11.5T240-480q0-17-11.5-28.5T200-520q-17 0-28.5 11.5T160-480q0 17 11.5 28.5T200-440Zm480-280q17 0 28.5-11.5T720-760q0-17-11.5-28.5T680-800q-17 0-28.5 11.5T640-760q0 17 11.5 28.5T680-720Zm0 520ZM200-480Zm480-280Z"
+            d="M14 9.9V8.2q.825-.35 1.688-.525T17.5 7.5q.65 0 1.275.1T20 7.85v1.6q-.6-.225-1.213-.337T17.5 9q-.95 0-1.825.238T14 9.9m0 5.5v-1.7q.825-.35 1.688-.525T17.5 13q.65 0 1.275.1t1.225.25v1.6q-.6-.225-1.213-.338T17.5 14.5q-.95 0-1.825.225T14 15.4m0-2.75v-1.7q.825-.35 1.688-.525t1.812-.175q.65 0 1.275.1T20 10.6v1.6q-.6-.225-1.213-.338T17.5 11.75q-.95 0-1.825.238T14 12.65M6.5 16q1.175 0 2.288.263T11 17.05V7.2q-1.025-.6-2.175-.9T6.5 6q-.9 0-1.788.175T3 6.7v9.9q.875-.3 1.738-.45T6.5 16m6.5 1.05q1.1-.525 2.213-.787T17.5 16q.9 0 1.763.15T21 16.6V6.7q-.825-.35-1.713-.525T17.5 6q-1.175 0-2.325.3T13 7.2zM12 20q-1.2-.95-2.6-1.475T6.5 18q-1.05 0-2.062.275T2.5 19.05q-.525.275-1.012-.025T1 18.15V6.1q0-.275.138-.525T1.55 5.2q1.15-.6 2.4-.9T6.5 4q1.45 0 2.838.375T12 5.5q1.275-.75 2.663-1.125T17.5 4q1.3 0 2.55.3t2.4.9q.275.125.413.375T23 6.1v12.05q0 .575-.487.875t-1.013.025q-.925-.5-1.937-.775T17.5 18q-1.5 0-2.9.525T12 20m-5-8.35"
           ></path>
         </svg>
-        <span>Outreach</span>
+        <span>Teaching</span>
       </div>
       In progress...
     </section>
@@ -183,13 +179,13 @@ const notes = sortByDate(await getCollection("notes"));
       <div class="section__title">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 -960 960 960"
+          viewBox="0 0 24 24"
           width="24px"
+          height="24px"
           fill="currentColor"
         >
           <path
-            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h168q14-36 44-58t68-22q38 0 68 22t44 58h168q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm280-670q13 0 21.5-8.5T510-820q0-13-8.5-21.5T480-850q-13 0-21.5 8.5T450-820q0 13 8.5 21.5T480-790ZM200-246q54-53 125.5-83.5T480-360q83 0 154.5 30.5T760-246v-514H200v514Zm280-194q58 0 99-41t41-99q0-58-41-99t-99-41q-58 0-99 41t-41 99q0 58 41 99t99 41ZM280-200h400v-10q-42-35-93-52.5T480-280q-56 0-107 17.5T280-210v10Zm200-320q-25 0-42.5-17.5T420-580q0-25 17.5-42.5T480-640q25 0 42.5 17.5T540-580q0 25-17.5 42.5T480-520Zm0 17Z"
+            d="m12 23l-3-3H5q-.825 0-1.412-.587T3 18V4q0-.825.588-1.412T5 2h14q.825 0 1.413.588T21 4v14q0 .825-.587 1.413T19 20h-4zm-7-6.15q1.35-1.325 3.138-2.087T12 14t3.863.763T19 16.85V4H5zm9.475-5.875Q15.5 9.95 15.5 8.5t-1.025-2.475T12 5T9.525 6.025T8.5 8.5t1.025 2.475T12 12t2.475-1.025M7 18h10v-.25q-1.05-.875-2.325-1.312T12 16t-2.675.438T7 17.75zm3.938-8.437Q10.5 9.125 10.5 8.5t.438-1.062T12 7t1.063.438T13.5 8.5t-.437 1.063T12 10t-1.062-.437m1.062.862"
           ></path>
         </svg>
         <span>CV</span>
