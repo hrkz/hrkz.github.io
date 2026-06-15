@@ -12,19 +12,31 @@ const notes = sortByDate(await getCollection("notes"));
   <img class="page__banner" src="/assets/banner.jpg" />
   <div class="page__block">
     <section class="container page__hero">
-      <h1>Hugo Frezat <i>"hrkz"</i></h1>
+      <h1>Hugo Frezat</h1>
+      <h5>
+        Dynamical Systems • Machine Learning • Numerical Methods • Climate
+        Modeling
+      </h5>
+      <hr />
       <span>
-        I am a researcher exploring the intersection of statistical machine
-        learning and numerical simulation for dynamical systems derived from
-        differential equations. My primary focus is on climate-related systems
-        (oceans, atmosphere) and astrophysical fluid dynamics (planetary
-        interiors, geodynamo, etc.), though I am always open to new
-        applications.
+        I am a computational scientist based in Grenoble, exploring the
+        intersection of statistical machine learning and numerical simulation
+        for dynamical systems derived from differential equations. My primary
+        focus is on climate-related systems (oceans, atmosphere) and
+        astrophysical fluid dynamics (planetary interiors, geodynamo, etc.),
+        though I am always open to new applications.
+      </span>
+      <span>
+        Although my work spans different areas in physics, I am still an applied
+        mathematician/computer scientist by training from
+        <a href="https://www.univ-grenoble-alpes.fr/"
+          >Université Grenoble-Alpes</a
+        > and <a href="https://ensimag.grenoble-inp.fr/">Ensimag</a>.
       </span>
       <span>
         I [plan to] occasionally share notes on a variety of topics I come
-        across in my research, ranging from theorems and numerical simulations
-        to physics phenomena or computer science stuff.
+        across in my research, ranging from numerical simulations to physics
+        phenomena or computer science stuff.
       </span>
       <h3>Information</h3>
       <span>
@@ -197,7 +209,7 @@ const notes = sortByDate(await getCollection("notes"));
 
 <style>
   .page__banner {
-    max-height: 300px;
+    max-height: 50px;
     object-fit: cover;
     border-bottom: 4px solid var(--color-text);
   }
